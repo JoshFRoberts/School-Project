@@ -12,9 +12,6 @@ export default {
         'th-highlight': '#FF9B00',
 
       },
-      fontFamily: {
-        sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-      },
     },
   },
   variants: {

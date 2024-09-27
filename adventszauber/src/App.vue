@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import Navigation from "@/components/Navigation.vue";
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Adventszauber" />
-    </div>
+    <img alt="Vue logo" class="logo" src="../public/baller_los.svg" width="125" height="125" />
+    <Navigation/>
   </header>
 
   <main>
+    <HelloWorld msg="Ostereiern" />
   </main>
 </template>
 
@@ -27,6 +26,8 @@ header {
 
 @media (min-width: 1024px) {
   header {
+    height: 8vh;
+    width: 100vb;
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
@@ -40,6 +41,10 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  }
+
+  main {
+    height: 92vh;
   }
 }
 </style>
