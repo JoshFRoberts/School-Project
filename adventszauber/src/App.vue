@@ -4,12 +4,12 @@ import Navigation from "@/components/Navigation.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="../public/baller_los.svg" width="125" height="125" />
+  <header class="full-bleed">
+    <img alt="Vue logo" class="logo" src="../src/assets/baller_los.svg" width="50" height="50" />
     <Navigation/>
   </header>
 
-  <main>
+  <main class="mt-2 content-wrapper">
     <HelloWorld msg="Ostereiern" />
   </main>
 </template>
@@ -27,7 +27,6 @@ header {
 @media (min-width: 1024px) {
   header {
     height: 8vh;
-    width: 100vb;
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
@@ -44,7 +43,7 @@ header {
   }
 
   main {
-    height: 92vh;
+    height: 91vh;
   }
 }
 </style>
