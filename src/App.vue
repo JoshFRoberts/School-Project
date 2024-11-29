@@ -1,18 +1,12 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import Navigation from "./components/TheNavigation.vue";
-</script>
-
 <template>
-  <div>
-    <header class="full-bleed">
-      <img alt="Vue logo" class="logo" src="../src/assets/baller_los.svg" width="50" height="50" />
-      <Navigation/>
-    </header>
-
-    <main class="mt-2 content-wrapper">
-      <HelloWorld msg="Ostereiern" />
-    </main>
+  <div id="app" class="min-h-screen bg-gray-100">
+    <Navigation />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
+<script setup>
+import Navigation from './components/TheNavigation.vue'
+import Footer from './components/Footer.vue'
+</script>
