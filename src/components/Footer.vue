@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="mt-8 text-center">
-        <p>&copy; 2024 3D-gedruckte Spiele & Deko. Alle Rechte vorbehalten.</p>
+        <p>&copy; BBS1 Lüneburg. Alle Rechte vorbehalten.</p>
       </div>
     </div>
   </footer>

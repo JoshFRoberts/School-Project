@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-6 py-8">
+    <div class="container text-gray-800 mx-auto px-6 py-8">
       <h1 class="text-4xl font-bold text-center mb-8">Willkommen bei 3D Spiele & Deko</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white rounded-lg shadow-md p-6">
