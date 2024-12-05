@@ -20,18 +20,31 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { switchLang, t, type LanguageCode } from "./Translator.vue";
 
+
+const validLanguages = ["de", "en", "fr", "es"];
+const hash = window.location.href.toLowerCase();
+
 const browserLanguage = navigator.language.split("-")[0];
-console.log(browserLanguage);
 const selectedLang = ref(browserLanguage.toUpperCase() as LanguageCode);
+
+for (let i = 0; i < validLanguages.length; i++) {
+  // Regex zur ermittlung der Sprache in der URL
+  const regex = new RegExp(`(^|[/\\-])${validLanguages[i]}([/\\-]|$)`);
+  
+  if (regex.test(hash)) {
+    switchLang(validLanguages[i].toUpperCase() as LanguageCode);
+    selectedLang.value = validLanguages[i].toUpperCase() as LanguageCode;
+    break; 
+  }else {
+    switchLang(selectedLang.value as LanguageCode);
+    selectedLang.value = browserLanguage.toUpperCase() as LanguageCode;
+  }
+}
 
 const changeLanguage = () => {
   switchLang(selectedLang.value as LanguageCode);
 };
-
-onMounted(() => {
-  switchLang(selectedLang.value as LanguageCode);
-});
 </script>
