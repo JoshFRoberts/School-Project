@@ -23,28 +23,49 @@
 import { ref } from "vue";
 import { switchLang, t, type LanguageCode } from "./Translator.vue";
 
-
-const validLanguages = ["de", "en", "fr", "es"];
-const hash = window.location.href.toLowerCase();
-
 const browserLanguage = navigator.language.split("-")[0];
 const selectedLang = ref(browserLanguage.toUpperCase() as LanguageCode);
 
+const validLanguages = ["de", "en", "fr", "es"];
+const langRegex = new RegExp(`\/(${validLanguages.join("|")})\/`);
+const currentUrl = window.location.href.toLowerCase();
+const newLang = ref(selectedLang.value);
+
+// Wenn die URL nicht die Sprache enthält, füge sie hinzu
+if (!langRegex.test(currentUrl)) {
+  window.location.href = `/${selectedLang.value.toLowerCase()}/`;
+}
 for (let i = 0; i < validLanguages.length; i++) {
-  // Regex zur ermittlung der Sprache in der URL
   const regex = new RegExp(`(^|[/\\-])${validLanguages[i]}([/\\-]|$)`);
-  
-  if (regex.test(hash)) {
+  // Wenn die URL die Sprache enthält, setze die Sprache der URL
+  if (regex.test(currentUrl)) {
     switchLang(validLanguages[i].toUpperCase() as LanguageCode);
     selectedLang.value = validLanguages[i].toUpperCase() as LanguageCode;
-    break; 
-  }else {
+    const newUrl = currentUrl.replace(
+      langRegex,
+      `/${newLang.value.toLowerCase()}/`
+    );
+    window.history.replaceState({}, "", newUrl);
+    break;
+  }
+  // Wenn die URL die Sprache nicht enthält, setze die Sprache des Browsers
+  else {
     switchLang(selectedLang.value as LanguageCode);
     selectedLang.value = browserLanguage.toUpperCase() as LanguageCode;
   }
 }
-
+/**
+ * Change the language of the page
+ */
 const changeLanguage = () => {
   switchLang(selectedLang.value as LanguageCode);
+  newLang.value = selectedLang.value;
+
+  const newUrl = currentUrl.replace(
+    langRegex,
+    `/${newLang.value.toLowerCase()}/`
+  );
+  // Ändere URL ohne Seitenneuladen
+  window.history.replaceState({}, "", newUrl);
 };
 </script>
