@@ -41,6 +41,7 @@ for (let i = 0; i < validLanguages.length; i++) {
   if (regex.test(currentUrl)) {
     switchLang(validLanguages[i].toUpperCase() as LanguageCode);
     selectedLang.value = validLanguages[i].toUpperCase() as LanguageCode;
+    newLang.value = selectedLang.value;
     const newUrl = currentUrl.replace(
       langRegex,
       `/${newLang.value.toLowerCase()}/`
