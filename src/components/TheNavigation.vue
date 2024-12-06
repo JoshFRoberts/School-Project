@@ -1,10 +1,11 @@
 <template>
-  <nav class="bg-white shadow-md">
+  <nav class="bg-gray-100">
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
       <router-link to="/" class="text-xl flex flex-row font-bold text-gray-800">
         Baller los</router-link
       >
       <div class="flex space-x-4">
+        <div><LangSelector /></div>
         <a href="#/" class="text-gray-800 hover:text-blue-500">Startseite</a>
         <!-- <router-link to="/brettspiel" class="text-gray-800 hover:text-blue-500">Brettspiel</router-link>
         <router-link to="/osterdeko" class="text-gray-800 hover:text-blue-500">Osterdeko</router-link> -->
@@ -17,10 +18,8 @@
 
 <script setup lang="ts">
 import Home from "../components/Home.vue";
-// import Brettspiel from './views/Brettspiel.vue'
-// import Osterdeko from './views/Osterdeko.vue'
 import UeberUns from "../components/Ueberuns.vue";
-// import logo from '../assets/BallerLosLogo.svg'
+import LangSelector from "../lang/LangSelector.vue";
 import { computed, ref } from "vue";
 
 const routes: { [key: string]: any } = {
