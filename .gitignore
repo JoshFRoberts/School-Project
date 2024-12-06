@@ -18,7 +18,7 @@ coverage
 /cypress/screenshots/
 
 # Editor directories and files
-.vscode/*
+adventszauber/.vscode/extensions.json
 !.vscode/extensions.json
 .idea
 *.suo
