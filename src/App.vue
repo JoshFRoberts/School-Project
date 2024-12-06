@@ -2,7 +2,7 @@
   <div id="app" class="min-h-screen bg-gray-100">
     <Navigation />
     <router-view></router-view>
-    <ProductSlider></ProductSlider>
+    <ProductSlider/>
     <Footer />
   </div>
 </template>

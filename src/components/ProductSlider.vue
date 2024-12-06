@@ -45,6 +45,11 @@ export default {
                     price: "40€",
                     image: new URL("@/assets/images/product4.svg", import.meta.url).href,
                 },
+                {
+                    name: "Talahon Anzug",
+                    price: "40€",
+                    image: new URL("@/assets/images/product4.svg", import.meta.url).href,
+                },
             ],
         };
     },
