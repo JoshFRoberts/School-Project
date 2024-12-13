@@ -1,61 +1,58 @@
 <template>
-    <div class="product-slider">
+    <div class="product-slider" :style="styleObject">
         <Swiper :slides-per-view="4" :space-between="20" :loop="false" navigation>
             <SwiperSlide v-for="(product, index) in products" :key="index">
                 <div class="product-card">
                     <img :src="product.image" :alt="product.name" />
-                    <h3>{{ product.name }}</h3>
-                    <p>{{ product.price }}</p>
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="product-price">{{ product.price }}</p>
                 </div>
             </SwiperSlide>
         </Swiper>
     </div>
 </template>
 
-
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
+import productImage from "@/assets/images/beispielprodukt.svg";
 
 export default {
     components: {
         Swiper,
         SwiperSlide,
     },
+    props: {
+        nameColor: {
+            type: String,
+            default: "#000",
+        },
+        priceColor: {
+            type: String,
+            default: "#555",
+        },
+    },
+    computed: {
+        styleObject() {
+            return {
+                "--name-color": this.nameColor,
+                "--price-color": this.priceColor,
+            };
+        },
+    },
     data() {
         return {
             products: [
-                {
-                    name: "Talahon Tasche",
-                    price: "10€",
-                    image: new URL("@/assets/images/product1.svg", import.meta.url).href,
-                },
-                {
-                    name: "Talahon Fortbewegungsmittel",
-                    price: "20€",
-                    image: new URL("@/assets/images/product2.svg", import.meta.url).href,
-                },
-                {
-                    name: "Talahon Kopfschutz",
-                    price: "30€",
-                    image: new URL("@/assets/images/product3.svg", import.meta.url).href,
-                },
-                {
-                    name: "Talahon Anzug",
-                    price: "40€",
-                    image: new URL("@/assets/images/product4.svg", import.meta.url).href,
-                },
-                {
-                    name: "Talahon Anzug",
-                    price: "40€",
-                    image: new URL("@/assets/images/product4.svg", import.meta.url).href,
-                },
+                { name: "Talahon Tasche", price: "10€", image: productImage },
+                { name: "Talahon Fortbewegungsmittel", price: "20€", image: productImage },
+                { name: "Talahon Kopfschutz", price: "30€", image: productImage },
+                { name: "Talahon Anzug", price: "40€", image: productImage },
+                { name: "Talahon (im Ganzen)", price: "400€", image: productImage },
             ],
         };
     },
 };
 </script>
-
 
 <style>
 .product-slider {
@@ -75,5 +72,13 @@ export default {
     width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+.product-name {
+    color: var(--name-color, #000);
+}
+
+.product-price {
+    color: var(--price-color, #555);
 }
 </style>
