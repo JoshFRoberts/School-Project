@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-6 py-8">
+    <div class="container mx-auto px-6 py-8 transition-colors duration-300">
       <h1 class="text-4xl font-bold text-center mb-8">3D-gedruckte Osterdekoration</h1>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div v-for="item in dekoItems" :key="item.id" class="bg-white rounded-lg shadow-md p-6">
