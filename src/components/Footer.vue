@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-800 text-white py-8 w-full">
+  <footer class="transition-colors duration-300 bg-background-LightGray dark:bg-dark-background-LightGray text-text-Gray dark:text-dark-text-Gray py-8 w-full">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-3 gap-8">
         <div class="text-center md:text-left">

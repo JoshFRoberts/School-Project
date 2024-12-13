@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-gray-800 mx-auto px-6 py-8 overflow-auto">
+  <div class="container mx-auto px-6 py-8 overflow-auto">
     <h1 class="text-4xl font-bold text-center mb-8">
       {{ t("welcome.header") }}
     </h1>
@@ -24,7 +24,7 @@
       </template>
     </HeroSlider>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="rounded-lg shadow-md p-6 bg-background-LightGray dark:bg-dark-background-LightGray">
         <h2 class="text-2xl font-semibold mb-4">
           {{ t("welcome.ourMainProduct.header") }}
         </h2>
@@ -37,7 +37,7 @@
           >{{ t("common.learnMore") }}</router-link
         >
       </div>
-      <div class="bg-white rounded-lg shadow-md p-6">
+      <div class=" bg-background-LightGray dark:bg-dark-background-LightGray rounded-lg shadow-md p-6">
         <h2 class="text-2xl font-semibold mb-4">
           {{ t("welcome.easter.header") }}
         </h2>
