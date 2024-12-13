@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-gray-800 mx-auto px-6 py-8 overflow-auto">
+  <div class="container mx-auto px-6 py-8 overflow-auto">
     <h1 class="text-4xl font-bold text-center mb-8">
       {{ t("welcome.header") }}
     </h1>
