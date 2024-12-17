@@ -43,11 +43,11 @@ export default {
     data() {
         return {
             products: [
-                { name: "Talahon Tasche", price: "10€", image: productImage },
-                { name: "Talahon Fortbewegungsmittel", price: "20€", image: productImage },
-                { name: "Talahon Kopfschutz", price: "30€", image: productImage },
-                { name: "Talahon Anzug", price: "40€", image: productImage },
-                { name: "Talahon (im Ganzen)", price: "400€", image: productImage },
+                { name: "3D Spielfigur Erweiterungsset 1", price: "10€", image: productImage },
+                { name: "3D Spielfigur Erweiterungsset 2", price: "20€", image: productImage },
+                { name: "Spielfeld-Erweiterung", price: "30€", image: productImage },
+                { name: "Oster-Deko Set "Hase", price: "40€", image: productImage },
+                { name: "Oster-Deko Set "Ei")", price: "400€", image: productImage },
             ],
         };
     },
