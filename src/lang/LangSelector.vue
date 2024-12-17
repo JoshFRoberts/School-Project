@@ -3,25 +3,21 @@
     <label
       for="languageSelect"
       class="block mb-2 text-sm font-medium text-gray-700 top-1 relative"
-      >{{ t("common.lang") }}</label
-    >
-    <select
+    >{{ t("common.lang") }}</label>
+    <CustomSelect
       id="languageSelect"
       v-model="selectedLang"
-      @change="changeLanguage"
-      class="block ml-2 pl-2 font-bold text-stone-500 hover:bg-black/10 w-9 h-9 bg-transparent rounded-full focus:outline-none sm:text-sm appearance-none"
-    >
-      <option value="DE">DE</option>
-      <option value="EN">EN</option>
-      <option value="FR">FR</option>
-      <option value="ES">ES</option>
-    </select>
+      :options="languageOptions"
+      @update:modelValue="changeLanguage"
+      class="ml-2"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { switchLang, t, type LanguageCode } from "./Translator.vue";
+import CustomSelect from './CustomSelect.vue';
 
 const browserLanguage = navigator.language.split("-")[0];
 const selectedLang = ref(browserLanguage.toUpperCase() as LanguageCode);
@@ -31,13 +27,22 @@ const langRegex = new RegExp(`\/(${validLanguages.join("|")})\/`);
 const currentUrl = window.location.href.toLowerCase();
 const newLang = ref(selectedLang.value);
 
-// Wenn die URL nicht die Sprache enthält, füge sie hinzu
+// Language options for the CustomSelect component
+const languageOptions = computed(() => [
+  { value: 'DE', svg: 'flag.germany' },
+  { value: 'EN', svg: 'flag.england' },
+  { value: 'FR', svg: 'flag.france' },
+  { value: 'ES', svg: 'flag.spain' },
+]);
+
+// If the URL doesn't contain the language, add it
 if (!langRegex.test(currentUrl)) {
   window.location.href = `/${selectedLang.value.toLowerCase()}/`;
 }
+
 for (let i = 0; i < validLanguages.length; i++) {
   const regex = new RegExp(`(^|[/\\-])${validLanguages[i]}([/\\-]|$)`);
-  // Wenn die URL die Sprache enthält, setze die Sprache der URL
+  // If the URL contains the language, set the language from the URL
   if (regex.test(currentUrl)) {
     switchLang(validLanguages[i].toUpperCase() as LanguageCode);
     selectedLang.value = validLanguages[i].toUpperCase() as LanguageCode;
@@ -49,24 +54,28 @@ for (let i = 0; i < validLanguages.length; i++) {
     window.history.replaceState({}, "", newUrl);
     break;
   }
-  // Wenn die URL die Sprache nicht enthält, setze die Sprache des Browsers
+  // If the URL doesn't contain the language, set the browser language
   else {
     switchLang(selectedLang.value as LanguageCode);
     selectedLang.value = browserLanguage.toUpperCase() as LanguageCode;
   }
 }
+
 /**
  * Change the language of the page
  */
-const changeLanguage = () => {
-  switchLang(selectedLang.value as LanguageCode);
-  newLang.value = selectedLang.value;
+const changeLanguage = (lang: string) => {
+  const languageCode = lang as LanguageCode;
+  selectedLang.value = languageCode;
+  switchLang(languageCode);
+  newLang.value = languageCode;
 
   const newUrl = currentUrl.replace(
     langRegex,
     `/${newLang.value.toLowerCase()}/`
   );
-  // Ändere URL ohne Seitenneuladen
+  // Change URL without page reload
   window.history.replaceState({}, "", newUrl);
 };
 </script>
+
