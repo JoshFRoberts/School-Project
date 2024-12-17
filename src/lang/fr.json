@@ -1,10 +1,12 @@
 {
-    "test": "vérifier",
-    "welcome.header": "Bienvenue sur la page d'accueil",
-    "common.learnMore": "En savoir plus",
-    "common.discover": "Découvrir",
-    "welcome.ourMainProduct.header": "Notre jeu de société imprimé en 3D",
-    "welcome.ourMainProduct.info": "Découvrez notre jeu de société unique réalisé avec la dernière technologie d'impression 3D. Parfait pour les soirées de jeux en famille et entre amis !",
-    "welcome.easter.header": "Décoration de Pâques de l'imprimante 3D",
-    "welcome.easter.info": "Égayez votre maison avec nos décorations de Pâques uniques imprimées en 3D. Chaque pièce est unique !"
+  "test": "vérifier",
+  "welcome.header": "Bienvenue sur la page d'accueil",
+  "common.learnMore": "En savoir plus",
+  "common.discover": "Découvrir",
+  "welcome.ourMainProduct.header": "Notre jeu de société imprimé en 3D",
+  "welcome.ourMainProduct.info": "Découvrez notre jeu de société unique réalisé avec la dernière technologie d'impression 3D. Parfait pour les soirées de jeux en famille et entre amis !",
+  "welcome.easter.header": "Décoration de Pâques de l'imprimante 3D",
+  "welcome.easter.info": "Égayez votre maison avec nos décorations de Pâques uniques imprimées en 3D. Chaque pièce est unique !",
+  "3dPrinter.header": "Notre imprimante 3D",
+  "3dPrinter.info": "Notre imprimante 3D, la Bambu Lab P1S, assure la création impeccable de nos décorations de Pâques et de nos jeux de société. Avec des détails précis, une production rapide et des options de matériaux polyvalents, nous apportons créativité et qualité directement chez vous."
 }
