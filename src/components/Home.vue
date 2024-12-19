@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto px-6 py-8 overflow-auto">
+  <div
+    class="container mx-auto px-6 py-8 overflow-auto bg-background-cream dark:bg-dark-background-cream"
+  >
     <h1 class="text-4xl font-bold text-center mb-8">
       {{ t("welcome.header") }}
     </h1>
@@ -8,7 +10,7 @@
       :description="t('3dPrinter.info')"
       :imageUrl="printerImage"
       side="left"
-      styleCss="info"
+      styleCss="default"
     >
       <template #buttons>
         <button
@@ -24,7 +26,9 @@
       </template>
     </HeroSlider>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="rounded-lg shadow-md p-6 bg-background-LightGray dark:bg-dark-background-LightGray">
+      <div
+        class="rounded-lg shadow-md p-6 bg-background-LightGray dark:bg-dark-background-LightGray"
+      >
         <h2 class="text-2xl font-semibold mb-4">
           {{ t("welcome.ourMainProduct.header") }}
         </h2>
@@ -37,7 +41,9 @@
           >{{ t("common.learnMore") }}</router-link
         >
       </div>
-      <div class=" bg-background-LightGray dark:bg-dark-background-LightGray rounded-lg shadow-md p-6">
+      <div
+        class="bg-background-LightGray dark:bg-dark-background-LightGray rounded-lg shadow-md p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">
           {{ t("welcome.easter.header") }}
         </h2>
@@ -51,11 +57,74 @@
         >
       </div>
     </div>
+    <ProductSlider :products="products" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { t } from "../lang/Translator.vue";
 import HeroSlider from "./HeroSlider.vue";
-import printerImage from "../resources/3d-printer.png";
+import printerImage from "@/assets/images/3d-printer.png";
+import spielfiguren1 from "@/assets/images/spielfiguren.jpg";
+import spielfiguren2 from "@/assets/images/spielfiguren2.jpg";
+import ProductSlider from "@/components/ProductSlider.vue";
+import productImage from "@/assets/images/beispielprodukt.svg";
+import type { SliderProductProps } from "@/resources/types";
+
+const products: SliderProductProps[] = [
+  {
+    name: "3D Spielfigur Erweiterungsset 1",
+    price: 10,
+    isNew: true,
+    desc: "Erweitere dein Spiel mit neuen Figuren",
+    image: spielfiguren1,
+  },
+  {
+    name: "3D Spielfigur Erweiterungsset 2",
+    price: 20,
+    isSale: true,
+    salePrice: 15,
+    desc: "Die epische Erweiterung 'Legenden des Reiches' erweitert das Grundspiel um faszinierende neue Mechaniken und Spielelemente. Die Spieler tauchen ein in bisher unerforschte Regionen des mystischen Königreichs, treffen auf mächtige neue Verbündete und stellen sich gefährlichen Herausforderungen. Das Erweiterungsset enthält 4 neue detailliert gestaltete Spielfiguren, 120 zusätzliche Ereigniskarten, einen erweiterten Spielplan mit geheimnisvollen Landschaften und komplett neue Questlinien, die das Spielerlebnis auf eine völlig neue Ebene heben.",
+    image: spielfiguren2,
+  },
+  {
+    name: "Spielfeld-Erweiterung",
+    desc: "stadg",
+    price: 30,
+    image: productImage,
+  },
+  {
+    name: "Oster-Deko Set 'Hase'",
+    desc: "stadg",
+    price: 40,
+    isNew: true,
+    image: productImage,
+  },
+  {
+    name: "Oster-Deko Set 'Ei'",
+    desc: "stadg",
+    price: 400,
+    image: productImage,
+  },
+  {
+    name: "Oster-Deko Set 'Ei'",
+    desc: "stadg",
+    price: 400,
+    image: productImage,
+  },
+  {
+    name: "Oster-Deko Set 'Ei'",
+    desc: "stadg",
+    isSale: true,
+    salePrice: 300,
+    price: 400,
+    image: productImage,
+  },
+  {
+    name: "Oster-Deko Set 'Ei'",
+    desc: "stadg",
+    price: 400,
+    image: productImage,
+  },
+];
 </script>

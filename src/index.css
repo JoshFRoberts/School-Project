@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header1 {
+  @apply text-2xl font-bold;
+  @apply text-text-Gray dark:text-dark-text-Gray;
+}
+.header2 {
+  @apply text-xl font-bold;
+  @apply text-text-Gray dark:text-dark-text-Gray;
+}
+.header3 {
+  @apply text-lg font-semibold;
+  @apply text-text-Gray dark:text-dark-text-Gray;
+}
+.baseText {
+  @apply text-base text-text-Gray dark:text-dark-text-Gray;
+}
+.bigText {
+    @apply text-base font-semibold text-text-Gray dark:text-dark-text-Gray;
+  }
