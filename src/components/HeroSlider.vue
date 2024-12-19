@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-7xl mx-auto px-4 mb-8 sm:px-6 lg:px-8 py-16"
+    class="max-w-7xl mx-auto px-4 mb-8 sm:px-6 lg:px-8 py-16 rounded-lg"
     :class="{ [bgStyle]: true }"
   >
     <div
@@ -48,8 +48,11 @@
       </div>
 
       <!-- Text Content for Right Side -->
-      <div class="text-center md:text-left" v-if="side === 'right'">
-        <h1 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+      <div class="text-center md:text-left" v-if="side == 'right'">
+        <h1
+          class="text-4xl md:text-5xl font-bold mb-4"
+          :class="{ [fontStyle]: true }"
+        >
           {{ title }}
         </h1>
         <p class="text-gray-600 text-lg mb-8">
@@ -73,20 +76,17 @@ const props = defineProps<{
 }>();
 
 const bgStyle =
-  props.styleCss === "easter"
-    ? "bg-gradient-to-br from-violet-100 via-pink-100 to-violet-100"
-    : props.styleCss === "info"
-    ? "bg-gradient-to-br from-gray-100 via-blue-50 to-gray-100"
+    props.styleCss === "info"
+    ? "bg-blue-50 dark:bg-blue-900"
     : props.styleCss === "default"
-    ? "bg-gradient-to-br from-gray-100 via-red-50 to-gray-100"
-    : "bg-gradient-to-br from-yellow-100 via-red-100 to-yellow-100";
+    ? "bg-background-LightGray dark:bg-dark-background-LightGray"
+    : "bg-yellow-100 dark:bg-yellow-800";
 
 const fontStyle =
-  props.styleCss === "easter"
-    ? "text-purple-900"
-    : props.styleCss === "info"
-    ? "text-blue-900"
+    props.styleCss === "info"
+    ? "text-blue-900 dark:text-blue-200"
     : props.styleCss === "default"
-    ? "text-gray-900"
-    : "text-black";
+    ? "text-gray-900 dark:text-gray-200"
+    : "text-yellow-900 dark:text-yellow-200";
+
 </script>
