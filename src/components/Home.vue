@@ -71,6 +71,8 @@ import ProductSlider from "@/components/ProductSlider.vue";
 import productImage from "@/assets/images/beispielprodukt.svg";
 import type { SliderProductProps } from "@/resources/types";
 
+import Button from '../UI/Button.vue'
+
 const products: SliderProductProps[] = [
   {
     name: "3D Spielfigur Erweiterungsset 1",
@@ -127,4 +129,9 @@ const products: SliderProductProps[] = [
     image: productImage,
   },
 ];
+
+const clickTest = () => {
+  console.log("Test");
+  
+}
 </script>
