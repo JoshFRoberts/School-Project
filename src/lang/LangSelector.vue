@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-row my-auto items-center h-full">
+  <div class="flex flex-row">
     <label
       for="languageSelect"
-      class="block mb-2 text-sm font-medium text-gray-700 top-1 relative"
+      class="text-sm font-medium text-gray-700 top-1 relative"
     >{{ t("common.lang") }}</label>
     <CustomSelect
       id="languageSelect"
