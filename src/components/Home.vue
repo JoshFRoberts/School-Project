@@ -14,8 +14,9 @@
     >
       <template #buttons>
         <div class="flex flex-row">
-          <Btn text="Click me" :clickling="clickTest" styling="notPrimary"/>
-          <Btn text="Click me" :clickling="clickTest" styling="purple"/>
+          <template v-for="color in ['primary-purple','primary-pink','primary-green','accent-yellow','accent-blue','accent-lavender', 'default']">
+            <Btn :text="color" :clickling="clickTest" :styling="color"/>
+          </template>
         </div>
       </template>
     </HeroSlider>
