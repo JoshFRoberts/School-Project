@@ -26,7 +26,7 @@
         <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
           <img
             :src="imageUrl"
-            alt="alt || 'Hero Image'"
+            alt="Bild des verwendeten 3D-Druckers"
             class="w-full h-auto rounded-lg"
           />
           <div

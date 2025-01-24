@@ -2,7 +2,7 @@
   <nav class="transition-colors duration-300 bg-background-LightGray dark:bg-dark-background-LightGray text-text-Gray dark:text-dark-text-Gray">
     <div class="container mx-auto px-6 flex justify-between items-center">
       <a href="#/" class="text-xl items-center flex flex-row font-bold">
-        <img class="aspect-square h-16 mr-2" src="../assets/baller_los_small.png" alt="Page Logo">
+        <img class="aspect-square h-16 mr-2" src="../assets/baller_los_small.png" alt="Logo von Baller Los bestehend aus einer Gruppe Menschen vor dem Planeten Erde">
         Baller los
       </a>
       <div class="flex space-x-4 items-center">
