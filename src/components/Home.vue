@@ -13,16 +13,10 @@
       styleCss="default"
     >
       <template #buttons>
-        <button
-          class="bg-purple-600 text-white px-4 py-2 rounded mr-4 hover:bg-purple-700"
-        >
-          Get Started
-        </button>
-        <button
-          class="bg-white text-purple-600 px-4 py-2 rounded border border-purple-600 hover:bg-purple-100"
-        >
-          Learn More
-        </button>
+        <div class="flex flex-row">
+          <Btn text="Click me" :clickling="clickTest" styling="notPrimary"/>
+          <Btn text="Click me" :clickling="clickTest" styling="purple"/>
+        </div>
       </template>
     </HeroSlider>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -71,7 +65,7 @@ import ProductSlider from "@/components/ProductSlider.vue";
 import productImage from "@/assets/images/beispielprodukt.svg";
 import type { SliderProductProps } from "@/resources/types";
 
-import Button from '../UI/Button.vue'
+import Btn from "@/UI/Button.vue";
 
 const products: SliderProductProps[] = [
   {
@@ -132,6 +126,5 @@ const products: SliderProductProps[] = [
 
 const clickTest = () => {
   console.log("Test");
-  
-}
+};
 </script>
