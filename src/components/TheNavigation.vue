@@ -46,11 +46,12 @@ import { computed, ref } from "vue";
 import DarkModeToggle from "@/components/DarkModeToggle.vue";
 import Link from "@/UI/Link.vue";
 import BallerLos from "@/assets/baller_los.svg";
+import ProductsPage from "@/components/ProductsPage.vue";
 
 const routes: { [key: string]: any } = {
   "/": Home,
   "/about": UeberUns,
-  "/products": UeberUns,
+  "/products": ProductsPage,
   "/game": UeberUns,
   "/rules": Rules,
 };
