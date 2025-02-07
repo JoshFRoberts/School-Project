@@ -69,7 +69,9 @@ const products: SliderProductProps[] = [
 
 <template>
 
+<div id="product-page-grid" class="grid grid-cols-2 gap-12 p-6 m-6">
   <HeroSlider
+      id="product"
       v-for="product in products"
       :title="product.name"
       :description="product.desc"
@@ -90,6 +92,7 @@ const products: SliderProductProps[] = [
       </button>
     </template>
   </HeroSlider>
+</div>
 
 </template>
 
