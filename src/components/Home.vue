@@ -13,16 +13,11 @@
       styleCss="default"
     >
       <template #buttons>
-        <button
-          class="bg-purple-600 text-white px-4 py-2 rounded mr-4 hover:bg-purple-700"
-        >
-          Get Started
-        </button>
-        <button
-          class="bg-white text-purple-600 px-4 py-2 rounded border border-purple-600 hover:bg-purple-100"
-        >
-          Learn More
-        </button>
+        <div class="flex flex-row">
+          <template v-for="color in ['primary-purple','primary-pink','primary-green','accent-yellow','accent-blue','accent-lavender', 'default']">
+            <Btn :text="color" :clickling="clickTest" :styling="color"/>
+          </template>
+        </div>
       </template>
     </HeroSlider>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -70,6 +65,8 @@ import spielfiguren2 from "@/assets/images/spielfiguren2.jpg";
 import ProductSlider from "@/components/ProductSlider.vue";
 import productImage from "@/assets/images/beispielprodukt.svg";
 import type { SliderProductProps } from "@/resources/types";
+
+import Btn from "@/UI/Button.vue";
 
 const products: SliderProductProps[] = [
   {
@@ -127,4 +124,8 @@ const products: SliderProductProps[] = [
     image: productImage,
   },
 ];
+
+const clickTest = () => {
+  console.log("Test");
+};
 </script>
