@@ -7,6 +7,7 @@ import spielfiguren2 from "@/assets/images/spielfiguren2.jpg";
 import productImage from "@/assets/images/beispielprodukt.svg";
 import printerImage from "@/assets/images/3d-printer.png";
 import HeroSlider from "@/components/HeroSlider.vue";
+import Button from "../UI/Button.vue";
 
 const products: SliderProductProps[] = [
   {
@@ -80,16 +81,14 @@ const products: SliderProductProps[] = [
       styleCss="default"
   >
     <template #buttons>
-      <button
-          class="bg-purple-600 text-white px-4 py-2 rounded mr-4 hover:bg-purple-700"
+      <Button
+          text="Details Anzeigen"
+          :clickling="() => console.log('Sip')"
+          rounding="m"
+          :styling="'primary-purple'"
       >
-        Button mit Funktion 1
-      </button>
-      <button
-          class="bg-white text-purple-600 px-4 py-2 rounded border border-purple-600 hover:bg-purple-100"
-      >
-        Button mit Funktion 2
-      </button>
+        Details Ansehen
+      </Button>
     </template>
   </HeroSlider>
 </div>
