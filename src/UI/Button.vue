@@ -96,11 +96,11 @@ const handleClick = () => {
 </script>
 
 <template>
-    <div
-        class="border-2 px-4 py-2 font-semibold text-gray-200 cursor-pointer"
+    <button
+        class="border-2 px-4 py-2 font-semibold text-gray-200 cursor-pointer text-center"
         :class="[roundingSize, colorName]"
         @click="handleClick"
     >
         {{ props.text }}
-    </div>
+    </button>
 </template>
