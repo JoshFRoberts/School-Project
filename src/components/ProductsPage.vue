@@ -81,14 +81,7 @@ const products: SliderProductProps[] = [
       styleCss="default"
   >
     <template #buttons>
-      <Button
-          text="Details Anzeigen"
-          :clickling="() => console.log('Sip')"
-          rounding="m"
-          :styling="'primary-purple'"
-      >
-        Details Ansehen
-      </Button>
+
     </template>
   </HeroSlider>
 </div>
