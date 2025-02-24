@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import Home from "../components/Home.vue";
-import UeberUns from "../components/Ueberuns.vue";
+import UeberUns2 from "../components/Ueberuns2.vue";
 import LangSelector from "../lang/LangSelector.vue";
 import { computed, ref } from "vue";
 import DarkModeToggle from "@/components/DarkModeToggle.vue";
