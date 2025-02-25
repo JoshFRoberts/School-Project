@@ -8,9 +8,9 @@
       :class="{ 'md:flex-row-reverse': side === 'right' }"
     >
       <!-- Text Content for Left Side -->
-      <div 
-        class="text-center md:text-left flex flex-col" 
-        v-if="side !== 'right'"
+      <div
+        class="text-center md:text-left flex-col hidden"
+        :class="side === 'right' ? 'hidden' : 'md:flex'"
       >
         <h1
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold dark:text-gray-100 mb-2 sm:mb-3"
@@ -30,15 +30,21 @@
         >
           {{ titleDesc }}
         </h2>
-        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8">
+        <p
+          class="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8"
+        >
           {{ description }}
         </p>
-        <div 
-          v-if="props.tag" 
+        <div
+          v-if="props.tag"
           class="flex flex-row flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6 md:mb-8"
         >
           <div v-for="tag in props.tag" :key="tag">
-            <span :class="tagStyle" class="text-xs sm:text-sm whitespace-nowrap">{{ tag }}</span>
+            <span
+              :class="tagStyle"
+              class="text-xs sm:text-sm whitespace-nowrap"
+              >{{ tag }}</span
+            >
           </div>
         </div>
         <div class="mt-auto">
@@ -47,7 +53,7 @@
       </div>
 
       <!-- Image Section -->
-      <div class="relative mx-auto w-full max-w-lg">
+      <div class="relative mx-auto w-full max-w-lg lg:max-w-2xl">
         <div
           class="backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 lg:p-10 shadow-lg dark:shadow-gray-800/20 w-full"
           :class="tagStyle"
@@ -82,9 +88,9 @@
       </div>
 
       <!-- Text Content for Right Side -->
-      <div 
-        class="text-center md:text-left flex flex-col" 
-        v-if="side === 'right'"
+      <div
+        class="text-center md:text-left flex flex-col"
+        :class="side === 'left' ? 'md:hidden' : 'md:flex'"
       >
         <h1
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold dark:text-gray-100 mb-2 sm:mb-3"
@@ -104,15 +110,21 @@
         >
           {{ titleDesc }}
         </h2>
-        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8">
+        <p
+          class="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8"
+        >
           {{ description }}
         </p>
-        <div 
-          v-if="props.tag" 
+        <div
+          v-if="props.tag"
           class="flex flex-row flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6 md:mb-8"
         >
           <div v-for="tag in props.tag" :key="tag">
-            <span :class="tagStyle" class="text-xs sm:text-sm whitespace-nowrap">{{ tag }}</span>
+            <span
+              :class="tagStyle"
+              class="text-xs sm:text-sm whitespace-nowrap"
+              >{{ tag }}</span
+            >
           </div>
         </div>
         <div class="mt-auto">

@@ -3,7 +3,6 @@
   <div
     class="mx-auto py-8 overflow-auto bg-background-cream dark:bg-dark-background-cream"
   >
-    <!-- Brettspiel -->
     <HeroSlider
       title="Maximal Sechs"
       titleStyle="cyanWater"
@@ -15,9 +14,10 @@
       ><template #buttons
         ><div class="justify-start pb-8 items-center md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex flex-col md:flex-row">
           <Btn styling="deepWater" text="Mehr Erfahren" @click="clickTest" />
-          <Btn styling="deepWater" text="Jetzt Kaufen" @click="clickTest" /></div></template
+          <Btn styling="deepWater" text="Jetzt Kaufen" @click="clickTest" />
+        </div>
+          </template
     ></HeroSlider>
-    <!-- Oster-Kollektion -->
     <HeroSlider
       title="Oster-Kollektion"
       decoration
@@ -33,7 +33,6 @@
           <Btn styling="easter" text="Zur Kollektion" @click="clickTest" /></div
       ></template>
     </HeroSlider>
-    <!-- 3D-Drucker -->
     <HeroSlider
       title="Bambu Lab P1S"
       titleStyle="secondary"

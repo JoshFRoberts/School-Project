@@ -1,6 +1,6 @@
 <template>
     <WaveDiv waveStyle="curved" :color="useThemeColor('ffffff', '111827')" />
-    <div class="w-full bg-white dark:bg-dark-background-LightGray mx-auto px-32 py-12 -mt-16 mb-8 rounded-lg">
+    <div class="w-full bg-white dark:bg-dark-background-LightGray mx-auto py-12 -mt-16 mb-8 rounded-lg">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
         <LastWordsRecolor
           text="Kontaktieren Sie uns!"
@@ -10,7 +10,7 @@
         />
       </h2>
   
-      <form @submit.prevent="submitForm" class="space-y-6 max-w-2xl mx-auto">
+      <form @submit.prevent="submitForm" class="space-y-6 max-w-xs md:max-w-2xl mx-auto">
   <!-- Name Field -->
   <div>
     <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>

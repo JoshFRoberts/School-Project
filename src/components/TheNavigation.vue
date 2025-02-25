@@ -41,7 +41,7 @@
           <Link to="#/about" text="Über uns" />
         </div>
         
-        <div class="flex items-center space-x-4 mr-24">
+        <div class="flex items-center space-x-4">
           <dark-mode-toggle />
           <LangSelector />
           
@@ -153,7 +153,7 @@
           <Link to="#/about" text="Über uns" />
         </div>
         
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 border">
           <dark-mode-toggle />
           <LangSelector />
           

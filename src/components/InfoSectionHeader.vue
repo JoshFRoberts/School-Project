@@ -11,7 +11,7 @@
       
       <!-- Gradient Overlay -->
       <div
-        class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-transparent"
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-transparent"
       ></div>
       
       <!-- Content -->
