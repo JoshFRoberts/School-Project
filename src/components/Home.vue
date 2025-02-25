@@ -1,58 +1,63 @@
 <template>
+  <InfoSectionHeader />
   <div
-    class="container mx-auto px-6 py-8 overflow-auto bg-background-cream dark:bg-dark-background-cream"
+    class="mx-auto py-8 overflow-auto bg-background-cream dark:bg-dark-background-cream"
   >
-    <h1 class="text-4xl font-bold text-center mb-8">
-      {{ t("welcome.header") }}
-    </h1>
+    <!-- Brettspiel -->
     <HeroSlider
-      :title="t('3dPrinter.header')"
+      title="Maximal Sechs"
+      titleStyle="cyanWater"
+      titleDesc="Brettspiel für die ganze Familie"
+      :description="t('3dPrinter.info')"
+      :imageUrl="FamilyGameTime"
+      side="right"
+      :tag="['Neu', 'Brettspiel']"
+      ><template #buttons
+        ><div class="justify-start pb-8 items-center md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex flex-col md:flex-row">
+          <Btn styling="deepWater" text="Mehr Erfahren" @click="clickTest" />
+          <Btn styling="deepWater" text="Jetzt Kaufen" @click="clickTest" /></div></template
+    ></HeroSlider>
+    <!-- Oster-Kollektion -->
+    <HeroSlider
+      title="Oster-Kollektion"
+      decoration
+      titleStyle="easter"
+      titleDesc="Osterdekoration für dein Zuhause"
+      :description="t('3dPrinter.info')"
+      :imageUrl="easterEggsImg"
+      side="left"
+      :tag="['Neu', 'Ostern']"
+    >
+      <template #buttons
+        ><div class="justify-start pb-8 items-center flex flex-row">
+          <Btn styling="easter" text="Zur Kollektion" @click="clickTest" /></div
+      ></template>
+    </HeroSlider>
+    <!-- 3D-Drucker -->
+    <HeroSlider
+      title="Bambu Lab P1S"
+      titleStyle="secondary"
+      :titleDesc="t('3dPrinter.header')"
       :description="t('3dPrinter.info')"
       :imageUrl="printerImage"
-      side="left"
-      styleCss="default"
+      side="right"
+      :tag="['Drucker', '3D']"
+      ><template #buttons
+        ><div class="justify-start w-full pb-8 flex flex-row">
+          <Btn text="Mehr Erfahren" styling="" @click="clickTest" /></div></template
+    ></HeroSlider>
+    <InfoSection
+      title="Über unsere Schülerfirma"
+      :titleStyle="{ wordsToRecolor: 1, position: 'end', color: 'water' }"
+      description="Als engagierte Gruppe von Schülern verbinden wir Innovation mit Umweltbewusstsein. Durch modernste 3D-Druck-Technologie erschaffen wir Produkte, die nicht nur Freude bereiten, sondern auch zum Nachdenken über unsere Umwelt anregen."
     >
-      <template #buttons>
-        <div class="flex flex-row">
-          <template v-for="color in ['primary-purple','primary-pink','primary-green','accent-yellow','accent-blue','accent-lavender', 'default']">
-            <Btn :text="color" :clickling="clickTest" :styling="color"/>
-          </template>
-        </div>
-      </template>
-    </HeroSlider>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div
-        class="rounded-lg shadow-md p-6 bg-background-LightGray dark:bg-dark-background-LightGray"
-      >
-        <h2 class="text-2xl font-semibold mb-4">
-          {{ t("welcome.ourMainProduct.header") }}
-        </h2>
-        <p class="mb-4">
-          {{ t("welcome.ourMainProduct.info") }}
-        </p>
-        <router-link
-          to="/brettspiel"
-          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >{{ t("common.learnMore") }}</router-link
-        >
-      </div>
-      <div
-        class="bg-background-LightGray dark:bg-dark-background-LightGray rounded-lg shadow-md p-6"
-      >
-        <h2 class="text-2xl font-semibold mb-4">
-          {{ t("welcome.easter.header") }}
-        </h2>
-        <p class="mb-4">
-          {{ t("welcome.easter.info") }}
-        </p>
-        <router-link
-          to="/osterdeko"
-          class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          >{{ t("common.discover") }}</router-link
-        >
-      </div>
-    </div>
+      <template #buttons
+        ><div class="justify-center max-w-md mx-auto pb-8 -mt-10 items-center flex flex-row">
+          <Btn styling="sky" text="Mehr Erfahren" @click="clickTest" /></div
+      ></template>
+    </InfoSection>
     <ProductSlider :products="products" />
+    <ContactForm />
   </div>
 </template>
 
@@ -64,11 +69,24 @@ import spielfiguren1 from "@/assets/images/spielfiguren.jpg";
 import spielfiguren2 from "@/assets/images/spielfiguren2.jpg";
 import ProductSlider from "@/components/ProductSlider.vue";
 import productImage from "@/assets/images/beispielprodukt.svg";
+import maximalSechsImg from "@/assets/images/spielbrett.jpg";
+import FamilyGameTime from "@/assets/images/FamilyGameTime.jpg";
+import easterEggsImg from "@/assets/images/eastereggs.jpeg";
 import type { SliderProductProps } from "@/resources/types";
+import LastWordsRecolor from "./LastWordsRecolor";
+import InfoSectionHeader from "./InfoSectionHeader.vue";
+import InfoSection from "./InfoSection.vue";
+import ContactForm from "./ContactForm.vue";
 
 import Btn from "@/UI/Button.vue";
 
 const products: SliderProductProps[] = [
+  {
+    name: "Maximal Sechs",
+    desc: "Ein Brettspiel für die ganze Familie",
+    price: 30,
+    image: maximalSechsImg,
+  },
   {
     name: "3D Spielfigur Erweiterungsset 1",
     price: 10,
@@ -83,12 +101,6 @@ const products: SliderProductProps[] = [
     salePrice: 15,
     desc: "Die epische Erweiterung 'Legenden des Reiches' erweitert das Grundspiel um faszinierende neue Mechaniken und Spielelemente. Die Spieler tauchen ein in bisher unerforschte Regionen des mystischen Königreichs, treffen auf mächtige neue Verbündete und stellen sich gefährlichen Herausforderungen. Das Erweiterungsset enthält 4 neue detailliert gestaltete Spielfiguren, 120 zusätzliche Ereigniskarten, einen erweiterten Spielplan mit geheimnisvollen Landschaften und komplett neue Questlinien, die das Spielerlebnis auf eine völlig neue Ebene heben.",
     image: spielfiguren2,
-  },
-  {
-    name: "Spielfeld-Erweiterung",
-    desc: "stadg",
-    price: 30,
-    image: productImage,
   },
   {
     name: "Oster-Deko Set 'Hase'",

@@ -1,51 +1,110 @@
 <template>
-  <div class="product-slider">
-    <!-- Slider container -->
-    <div
-      ref="containerRef"
-      class="flex flex-row max-w-[84rem] py-2 px-5 my-8 mx-auto space-x-2 overflow-x-hidden "
-    >
-      <div class="flex flex-row absolute -ml-12 w-[90rem] mt-36">
-        <button @click="scrollLeft" class="border rounded-full hover:bg-gray-100"><SvgSelector svg="common.arrowLeft.svg" :size="32" /></button>
-        <button @click="scrollRight" class="ml-auto border rounded-full hover:bg-gray-100"><SvgSelector svg="common.arrowRight.svg" :size="32" /></button>
-      </div>
-      <!-- Slider Cards -->
-      <div v-for="(product, index) in props.products" :key="index">
-        <div
-          class="flex flex-col w-64 h-96 px-4 py-2 rounded-md bg-background-LightGray dark:bg-dark-background-LightGray"
+  <div class="relative px-4 py-8 mx-auto max-w-sm sm:max-w-xl">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
+      Unsere Produkte!
+    </h2>
+    
+    <!-- Slider Container -->
+    <div class="relative max-w-7xl mx-auto">
+      <!-- Left Button - Responsive positioning -->
+      <div class="absolute inset-y-0 left-0 -translate-x-1/2 sm:-translate-x-full flex items-center z-10 px-2">
+        <button
+          class="h-10 w-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hidden sm:flex items-center justify-center"
+          @click="scrollLeft"
         >
-          <div class="relative w-56 border overflow-hidden dark:border-gray-600 border-gray-300">
-            <!-- Sale Banner -->
-            <div
-              v-if="product.isSale"
-              class="absolute bg-red-800 w-24 text-white px-2 text-center -rotate-45 top-2 -left-7"
-            >
-              Sale
-            </div>
-            <div
-              v-if="product.isNew"
-              class="absolute bg-green-800 w-24 text-white px-2 text-center -rotate-45 top-2 -left-7"
-            >
-              NEW
-            </div>
-
-            <!-- Product Image -->
-            <img :src="product.image" :alt="product.name" class="w-full" />
-          </div>
-          <h3 class="mt-2 bigText">
-            {{ truncateString(product.name, 28) }}
-          </h3>
-          <h6 class="mb-1 baseText">{{ truncateString(product.desc) }}</h6>
-          <div class="mt-auto flex flex-row">
-            <button class="border bigText dark:border-gray-600 px-2 border-gray-300">Read more</button>
-            <div v-if="product.salePrice" class="ml-auto flex flex-row">
-              <p class="ml-auto text-sm font-medium line-through mt-auto mr-2">
-                {{ product.price }}€
-              </p>
-              <p class="ml-auto font-bold">{{ product.salePrice }}€</p>
-            </div>
-            <p v-else class="ml-auto font-bold">{{ product.price }}€</p>
-          </div>
+          <svg
+            class="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          <span class="sr-only">Scroll left</span>
+        </button>
+      </div>
+      
+      <!-- Right Button - Responsive positioning -->
+      <div class="absolute inset-y-0 right-0 translate-x-1/2 sm:translate-x-full flex items-center z-10 px-2">
+        <button
+          class="h-10 w-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 hidden sm:flex items-center justify-center"
+          @click="scrollRight"
+        >
+          <svg
+            class="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+          <span class="sr-only">Scroll right</span>
+        </button>
+      </div>
+      
+      <!-- Mobile scroll indicators -->
+      <div class="flex justify-center gap-2 mt-4 sm:hidden">
+        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+          <svg
+            class="h-4 w-4 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          <span>Swipe für mehr</span>
+          <svg
+            class="h-4 w-4 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- ProductCard Container - Responsive scrolling -->
+      <div
+        ref="containerRef"
+        class="flex space-x-4 sm:space-x-6 py-4 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
+        :style="{ 
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }"
+      >
+        <div 
+          v-for="product in products" 
+          :key="product.id" 
+          class="snap-start"
+        >
+          <ProductCard :product="product" />
         </div>
       </div>
     </div>
@@ -53,32 +112,21 @@
 </template>
 
 <script setup lang="ts">
-import type { SliderProductProps } from "@/resources/types";
 import { ref } from "vue";
-  import SvgSelector from '../resources/SvgSelector.vue'
+import ProductCard from "./ProductCard.vue";
+import type { Product } from "@/types";
 
-/**
- * Truncate a string to a given length and append an ellipsis.
- * @param str The string to truncate.
- * @param length The maximum length of the truncated string.
- * @returns The truncated string.
- */
-const truncateString = (str: string, length?: number): string => {
-  const maxLength = length || 74;
-  const ellipsis = "...";
+const props = defineProps<{
+  products: Product[];
+}>();
 
-  if (str.length > maxLength + 1) {
-    return str.slice(0, maxLength) + ellipsis;
-  }
-
-  return str;
-};
 const containerRef = ref<HTMLElement | null>(null);
 
 const scrollLeft = () => {
   if (containerRef.value) {
+    const scrollAmount = containerRef.value.clientWidth * 0.75;
     containerRef.value.scrollBy({
-      left: -300,
+      left: -scrollAmount,
       behavior: "smooth",
     });
   }
@@ -86,23 +134,24 @@ const scrollLeft = () => {
 
 const scrollRight = () => {
   if (containerRef.value) {
+    const scrollAmount = containerRef.value.clientWidth * 0.75;
     containerRef.value.scrollBy({
-      left: 300,
+      left: scrollAmount,
       behavior: "smooth",
     });
   }
 };
-
-const props = defineProps({
-  nameColor: { type: String, default: "#000" },
-  products: { type: Array<SliderProductProps>, required: true },
-  priceColor: { type: String, default: "#555" },
-});
-
-// styleObject() {
-//             return {
-//                 "--name-color": this.nameColor,
-//                 "--price-color": this.priceColor,
-//             };
-//         }
 </script>
+
+<style scoped>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>
