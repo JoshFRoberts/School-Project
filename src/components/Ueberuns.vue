@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: Translation -->
   <div class="min-h-screen">
     <!-- Hero Section -->
     <section class="container mx-auto px-4 py-16">

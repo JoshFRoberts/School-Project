@@ -7,7 +7,7 @@
       <MaximalSechsSection /> 
       <!-- Header -->
       <header class="text-center mb-16">
-        <h1 class="text-6xl font-extrabold tracking-tight mb-4">
+        <!-- <h1 class="text-6xl font-extrabold tracking-tight mb-4">
           <LastWordsRecolor
             :text="t('rules.header')"
             :wordsToRecolor="10"
@@ -16,7 +16,7 @@
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-400">
           {{ t("rules.header.info") }}
-        </p>
+        </p> -->
       </header>
 
       <!-- Main Content -->

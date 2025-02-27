@@ -50,6 +50,7 @@
       <!-- Auf kleinen Geräten wird der Block unter dem Inhalt positioniert, auf größeren Geräten (ab md) am unteren Rand des Content-Bereichs -->
       <div class="w-full mt-8 md:absolute md:bottom-8">
         <!-- Tags -->
+         <!-- TODO: Translation -->
         <div class="my-4 flex flex-wrap justify-center md:justify-start space-x-4">
           <Tag title="100% Recycelbar" styleVariant="primary" />
           <Tag title="Plastikfrei verpackt" styleVariant="secondary" />

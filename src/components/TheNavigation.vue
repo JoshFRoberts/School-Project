@@ -37,6 +37,7 @@
           <Link to="/" :text="t('nav.home')" />
           <Link to="#/rules" :text="t('nav.rules')" />
           <Link to="#/about" :text="t('nav.aboutUs')" />
+          <!-- TODO: Add Privacy Page -->
         </div>
 
         <div class="flex items-center space-x-4">
@@ -182,21 +183,21 @@
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-          {{ t("nav.home") }}
+            {{ t("nav.home") }}
           </a>
           <a
             href="#/rules"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-          {{ t("nav.rules") }}
+            {{ t("nav.rules") }}
           </a>
           <a
             href="#/about"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-          {{ t("nav.aboutUs") }}
+            {{ t("nav.aboutUs") }}
           </a>
         </div>
       </div>
@@ -227,7 +228,6 @@ import ProductsPage from "@/components/ProductsPage.vue";
 const routes: { [key: string]: any } = {
   "#/": Home,
   "/about": UeberUns,
-  "/game": UeberUns,
   "/rules": Rules,
 };
 
