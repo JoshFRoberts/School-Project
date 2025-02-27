@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="selectedSvg" v-html="svgWithSizeAndColor"></div>
+    <div class="border rounded-full overflow-hidden" v-if="selectedSvg" v-html="svgWithSizeAndColor"></div>
     <span v-else>SVG not found</span>
   </div>
 </template>
@@ -28,69 +28,57 @@ const SVGs: SvgCollection = {
       </clipPath>
     </defs>
     
-    
-    <g clip-path="url(#ring-clip)">
       <rect id="black_stripe" width="5" height="3" y="0" x="0" fill="#000"/>
       <rect id="red_stripe" width="5" height="2" y="1" x="0" fill="#D00"/>
       <rect id="gold_stripe" width="5" height="1" y="2" x="0" fill="#FFCE00"/>
-    </g>
     
-    <circle cx="2.5" cy="1.5" r="1.5" fill="none" stroke="white" stroke-width="0.1"/>
   </svg>`,
     },
     france: {
-      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3">
-    <defs>
-      <clipPath id="ring-clip">
-        <circle cx="2.5" cy="1.5" r="1.5"/>
-      </clipPath>
-    </defs>
-    
-    
-    <g clip-path="url(#ring-clip)">
-      <rect width="5" height="3" fill="#002395"/>
-      <rect x="0" width="5" height="2" fill="#FFFFFF"/>
-      <rect x="0" width="5" height="1" fill="#ED2939"/>
-    </g>
-    
-    <circle cx="2.5" cy="1.5" r="1.5" fill="none" stroke="white" stroke-width="0.1"/>
-  </svg>`,
+      svg: `<svg width="48" height="32" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="16" height="32" fill="#0055A4"/>
+  <rect x="16" width="16" height="32" fill="#FFFFFF"/>
+  <rect x="32" width="16" height="32" fill="#EF4135"/>
+</svg>
+`,
     },
     england: {
-      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3">
-    <defs>
-      <clipPath id="ring-clip">
-        <circle cx="2.5" cy="1.5" r="1.5"/>
-      </clipPath>
-    </defs>
-    
-    <rect width="5" height="3" fill="white"/>
-    
-    <g clip-path="url(#ring-clip)">
-      <rect width="5" height="3" fill="#FFFFFF"/>
-      <rect x="2" width="1" height="3" fill="#CF081F"/>
-      <rect y="1" width="5" height="1" fill="#CF081F"/>
-    </g>
-    
-    <circle cx="2.5" cy="1.5" r="1.5" fill="none" stroke="white" stroke-width="0.1"/>
-  </svg>`,
+      svg: `<svg width="48" height="32" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="32" fill="#B22234"/>
+  <rect y="4" width="48" height="4" fill="#FFFFFF"/>
+  <rect y="8" width="48" height="4" fill="#B22234"/>
+  <rect y="12" width="48" height="4" fill="#FFFFFF"/>
+  <rect y="16" width="48" height="4" fill="#B22234"/>
+  <rect y="20" width="48" height="4" fill="#FFFFFF"/>
+  <rect y="24" width="48" height="4" fill="#B22234"/>
+  <rect y="28" width="48" height="4" fill="#FFFFFF"/>
+  
+  <rect width="20" height="16" fill="#3C3B6E"/>
+  <g fill="white">
+    <circle cx="2.5" cy="2.5" r="1"/>
+    <circle cx="7.5" cy="2.5" r="1"/>
+    <circle cx="12.5" cy="2.5" r="1"/>
+    <circle cx="17.5" cy="2.5" r="1"/>
+    <circle cx="5" cy="6" r="1"/>
+    <circle cx="10" cy="6" r="1"/>
+    <circle cx="15" cy="6" r="1"/>
+    <circle cx="2.5" cy="9.5" r="1"/>
+    <circle cx="7.5" cy="9.5" r="1"/>
+    <circle cx="12.5" cy="9.5" r="1"/>
+    <circle cx="17.5" cy="9.5" r="1"/>
+    <circle cx="5" cy="13" r="1"/>
+    <circle cx="10" cy="13" r="1"/>
+    <circle cx="15" cy="13" r="1"/>
+  </g>
+</svg>
+`,
     },
     spain: {
-      svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3">
-    <defs>
-      <clipPath id="ring-clip">
-        <circle cx="2.5" cy="1.5" r="1.5"/>
-      </clipPath>
-    </defs>
-    
-    <g clip-path="url(#ring-clip)">
-      <rect width="5" height="4" fill="#AA151B"/>
-      <rect y="1" width="5" height="1" fill="#F1BF00"/>
-      <path d="M187.5,250 C187.5,195.65 233.65,150 288,150 C342.35,150 388.5,195.65 388.5,250 C388.5,304.35 342.35,350 288,350 C233.65,350 187.5,304.35 187.5,250" fill="#AA151B"/>
-    </g>
-    
-      <circle cx="2.5" cy="1.5" r="1.5" fill="none" stroke="white" stroke-width="0.1"/>
-  </svg>`,
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 5 3">
+  <rect width="5" height="3" fill="#AA151B"/>
+  <rect y="0.75" width="5" height="1.5" fill="#F1BF00"/>
+</svg>
+`,
     },
   },
   common: {

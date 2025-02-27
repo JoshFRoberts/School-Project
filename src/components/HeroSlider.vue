@@ -42,8 +42,12 @@
           <div v-for="tag in props.tag" :key="tag">
             <span
               :class="tagStyle"
-              class="text-xs sm:text-sm whitespace-nowrap"
-              >{{ tag }}</span
+              class="text-xs flex flex-row sm:text-sm whitespace-nowrap"
+              ><component
+                :is="getLucideIcon(tag.icon)"
+                v-if="tag.icon"
+                class="w-5 h-5 mr-2"
+              />{{ tag.text }}</span
             >
           </div>
         </div>
@@ -122,8 +126,12 @@
           <div v-for="tag in props.tag" :key="tag">
             <span
               :class="tagStyle"
-              class="text-xs sm:text-sm whitespace-nowrap"
-              >{{ tag }}</span
+              class="text-xs flex flex-row sm:text-sm whitespace-nowrap"
+              ><component
+                :is="getLucideIcon(tag.icon)"
+                v-if="tag.icon"
+                class="w-5 h-5 mr-2"
+              />{{ tag.text }}</span
             >
           </div>
         </div>
@@ -136,8 +144,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import LastWordsRecolor from "./LastWordsRecolor";
+import * as lucideIcons from "lucide-vue-next";
 
 const props = defineProps<{
   title: string;
@@ -148,10 +157,16 @@ const props = defineProps<{
   side: "left" | "right";
   decoration?: boolean;
   isNew?: boolean;
-  tag?: string[];
+  tag?: { text: string; icon?: String }[];
   imageSize?: number;
 }>();
 
+// Dynamische Auswahl des Icons
+const getLucideIcon = (iconName?: string) => {
+  return iconName && lucideIcons[iconName]
+    ? lucideIcons[iconName]
+    : lucideIcons.HelpCircle;
+};
 // Fallback image URL
 const fallbackImage = "/path/to/fallback/image.jpg";
 

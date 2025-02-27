@@ -18,7 +18,7 @@
       <div
         class="mx-auto px-2 sm:px-8 md:px-12 flex justify-between items-center h-full"
       >
-        <a href="#/" class="text-xl  flex items-center font-bold">
+        <a href="#/" class="text-xl flex items-center font-bold">
           <img
             class="aspect-square h-12 md:h-16 mr-2 dark:hidden"
             src="../assets/baller_los_small_no-bg.png"
@@ -31,92 +31,76 @@
           />
           <span class="hidden sm:inline">Baller los</span>
         </a>
-        
+
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-4">
-          <Link to="#/" text="Startseite" />
-          <Link to="#/products" text="Produkte" />
-          <Link to="#/game" text="Brettspiel" />
-          <Link to="#/rules" text="Regeln" />
-          <Link to="#/about" text="Über uns" />
+          <Link to="/" :text="t('nav.home')" />
+          <Link to="#/rules" :text="t('nav.rules')" />
+          <Link to="#/about" :text="t('nav.aboutUs')" />
         </div>
-        
+
         <div class="flex items-center space-x-4">
           <dark-mode-toggle />
           <LangSelector />
-          
+
           <!-- Burger Menu Button -->
-          <button 
-            class="md:hidden focus:outline-none" 
+          <button
+            class="md:hidden focus:outline-none"
             @click="toggleMobileMenu"
             aria-label="Toggle menu"
           >
-            <svg 
-              class="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                v-if="!isMobileMenuOpen" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
+              <path
+                v-if="!isMobileMenuOpen"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
                 d="M4 6h16M4 12h16M4 18h16"
               ></path>
-              <path 
-                v-else 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
+              <path
+                v-else
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
                 d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
           </button>
         </div>
       </div>
-      
+
       <!-- Mobile Menu -->
-      <div 
-        v-if="isMobileMenuOpen" 
+      <div
+        v-if="isMobileMenuOpen"
         class="md:hidden bg-background-LightGray dark:bg-dark-background-LightGray shadow-lg"
       >
         <div class="px-4 pt-2 pb-3 space-y-1">
-          <a 
-            href="#/" 
+          <a
+            href="#/"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Startseite
+            {{ t("nav.home") }}
           </a>
-          <a 
-            href="#/products" 
+          <a
+            href="#/rules"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Produkte
+            {{ t("nav.rules") }}
           </a>
-          <a 
-            href="#/game" 
+          <a
+            href="#/about"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Brettspiel
-          </a>
-          <a 
-            href="#/rules" 
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            Regeln
-          </a>
-          <a 
-            href="#/about" 
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            Über uns
+            {{ t("nav.aboutUs") }}
           </a>
         </div>
       </div>
@@ -143,92 +127,76 @@
           />
           <span class="hidden sm:inline">Baller los</span>
         </a>
-        
+
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-4">
-          <Link to="#/" text="Startseite" />
-          <Link to="#/products" text="Produkte" />
-          <Link to="#/game" text="Brettspiel" />
-          <Link to="#/rules" text="Regeln" />
-          <Link to="#/about" text="Über uns" />
+          <Link to="#/" :text="t('nav.home')" />
+          <Link to="#/rules" :text="t('nav.rules')" />
+          <Link to="#/about" :text="t('nav.aboutUs')" />
         </div>
-        
-        <div class="flex items-center space-x-2 border">
+
+        <div class="flex items-center space-x-2">
           <dark-mode-toggle />
           <LangSelector />
-          
+
           <!-- Burger Menu Button -->
-          <button 
-            class="md:hidden focus:outline-none" 
+          <button
+            class="md:hidden focus:outline-none"
             @click="toggleMobileMenu"
             aria-label="Toggle menu"
           >
-            <svg 
-              class="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                v-if="!isMobileMenuOpen" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
+              <path
+                v-if="!isMobileMenuOpen"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
                 d="M4 6h16M4 12h16M4 18h16"
               ></path>
-              <path 
-                v-else 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
+              <path
+                v-else
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
                 d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
           </button>
         </div>
       </div>
-      
+
       <!-- Mobile Menu -->
-      <div 
-        v-if="isMobileMenuOpen" 
+      <div
+        v-if="isMobileMenuOpen"
         class="md:hidden bg-background-LightGray dark:bg-dark-background-LightGray shadow-lg"
       >
         <div class="px-4 pt-2 pb-3 space-y-1">
-          <a 
-            href="#/" 
+          <a
+            href="#/"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Startseite
+          {{ t("nav.home") }}
           </a>
-          <a 
-            href="#/products" 
+          <a
+            href="#/rules"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Produkte
+          {{ t("nav.rules") }}
           </a>
-          <a 
-            href="#/game" 
+          <a
+            href="#/about"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            Brettspiel
-          </a>
-          <a 
-            href="#/rules" 
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            Regeln
-          </a>
-          <a 
-            href="#/about" 
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            Über uns
+          {{ t("nav.aboutUs") }}
           </a>
         </div>
       </div>
@@ -245,9 +213,9 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import Home from "../components/Home.vue";
+import { t } from "../lang/Translator.vue";
 import UeberUns from "../components/Ueberuns.vue";
 import Rules from "../components/Rules.vue";
 import LangSelector from "../lang/LangSelector.vue";
@@ -257,9 +225,8 @@ import Link from "@/UI/Link.vue";
 import ProductsPage from "@/components/ProductsPage.vue";
 
 const routes: { [key: string]: any } = {
-  "/": Home,
+  "#/": Home,
   "/about": UeberUns,
-  "/products": ProductsPage,
   "/game": UeberUns,
   "/rules": Rules,
 };
@@ -279,7 +246,10 @@ const currentView = computed(() => {
 const isScrolled = ref(false);
 const isHovered = ref(false);
 const isHomePage = computed(
-  () => currentPath.value === "#" || currentPath.value === "#/"
+  () =>
+    currentPath.value === "#" ||
+    currentPath.value === "#/" ||
+    currentPath.value === ""
 );
 
 // Mobile menu functions
@@ -304,7 +274,8 @@ const updateScrollState = () => {
 
 // Close mobile menu on resize to desktop view
 const handleResize = () => {
-  if (window.innerWidth >= 768) { // md breakpoint
+  if (window.innerWidth >= 768) {
+    // md breakpoint
     isMobileMenuOpen.value = false;
   }
 };

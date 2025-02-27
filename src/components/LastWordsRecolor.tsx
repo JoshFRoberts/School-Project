@@ -101,7 +101,7 @@ export default defineComponent({
       default: "end",
     },
     styleVariant: {
-      type: String as () => "easter" | "primary" | "secondary" | "colorful",
+      type: String as () => "easter" | "primary" | "secondary" | "colorful" | "tealWater" | "cyanWater" | "water",
       default: "primary",
     },
   },

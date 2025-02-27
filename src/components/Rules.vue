@@ -1,19 +1,21 @@
 <template>
   <div
-    class="min-h-screen bg-gray-50 dark:bg-dark-background-cream text-gray-900 dark:text-gray-100 transition-colors duration-300"
+    class="min-h-screen mb-16 bg-gray-50 dark:bg-dark-background-cream text-gray-900 dark:text-gray-100 transition-colors duration-300"
   >
+
     <div class="container mx-auto px-4 py-16">
+      <MaximalSechsSection /> 
       <!-- Header -->
       <header class="text-center mb-16">
         <h1 class="text-6xl font-extrabold tracking-tight mb-4">
-          <span
-            class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-          >
-            Spielregeln
-          </span>
+          <LastWordsRecolor
+            :text="t('rules.header')"
+            :wordsToRecolor="10"
+            styleVariant="water"
+          />
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-400">
-          Tauche ein in das Abenteuer – und entdecke die Regeln des Spiels!
+          {{ t("rules.header.info") }}
         </p>
       </header>
 
@@ -23,28 +25,39 @@
         <div
           class="bg-white dark:bg-dark-background-LightGray rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
         >
-          <h2
-            class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center"
-          >
-            <InfoIcon class="w-6 h-6 mr-2" />
-            Spielinformationen
+          <h2 class="text-2xl font-bold mb-4 flex items-center">
+            <InfoIcon class="w-6 h-6 mr-2 text-blue-600" />
+            <LastWordsRecolor
+              :text="t('rules.info.header')"
+              :wordsToRecolor="10"
+              styleVariant="water"
+            />
           </h2>
           <ul class="space-y-3 text-gray-700 dark:text-gray-300">
             <li class="flex items-center">
               <DicesIcon
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
               />
-              <span class="font-medium">Spieleranzahl:</span> 2 bis 6 Spieler
+              <span class="font-medium"
+                >{{ t("rules.info.player.header") }}:</span
+              >
+              {{ t("rules.info.player") }}
             </li>
             <li class="flex items-center">
-              <UsersIcon class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400" />
-              <span class="font-medium">Alter:</span> 12 bis 99 Jahre
+              <UsersIcon
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
+              />
+              <span class="font-medium">{{ t("rules.info.age.header") }}:</span>
+              {{ t("rules.info.age") }}
             </li>
             <li class="flex items-center">
               <ClockIcon
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
               />
-              <span class="font-medium">Spieldauer:</span> 10 bis 15 Minuten
+              <span class="font-medium"
+                >{{ t("rules.info.duration.header") }}:</span
+              >
+              {{ t("rules.info.duration") }}
             </li>
           </ul>
         </div>
@@ -53,32 +66,34 @@
         <div
           class="bg-white dark:bg-dark-background-LightGray rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
         >
-          <h2
-            class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center"
-          >
-            <PackageIcon class="w-6 h-6 mr-2" />
-            Spielmaterialien
+          <h2 class="text-2xl font-bold mb-4 flex items-center">
+            <PackageIcon class="w-6 h-6 mr-2 text-blue-600" />
+            <LastWordsRecolor
+              :text="t('rules.material.header')"
+              :wordsToRecolor="10"
+              styleVariant="water"
+            />
           </h2>
           <ul class="space-y-2 text-gray-700 dark:text-gray-300">
             <li class="flex items-center">
               <MapIcon
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
-              />Spielbrett mit Feldern (Fragefelder, Ereignisfelder)
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
+              />{{ t("rules.material.board") }}
             </li>
             <li class="flex items-center">
               <WalletCardsIcon
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
-              />Spielfiguren für jeden Spieler
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
+              />{{ t("rules.material.pieces") }}
             </li>
             <li class="flex items-center">
               <MessageCircleQuestion
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
-              />Fragen- und Ereigniskarten
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
+              />{{ t("rules.material.cards") }}
             </li>
             <li class="flex items-center">
               <DicesIcon
-                class="w-5 h-5 mr-2 text-pink-600 dark:text-pink-400"
-              />Würfel
+                class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
+              />{{ t("rules.material.dice") }}
             </li>
           </ul>
         </div>
@@ -87,22 +102,22 @@
         <div
           class="bg-white dark:bg-dark-background-LightGray rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
         >
-          <h2
-            class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center"
-          >
-            <SettingsIcon class="w-6 h-6 mr-2" />
-            Spielvorbereitung
+          <h2 class="text-2xl font-bold mb-4 flex items-center">
+            <SettingsIcon class="w-6 h-6 mr-2 text-blue-600" />
+            <LastWordsRecolor
+              :text="t('rules.preparation.header')"
+              :wordsToRecolor="10"
+              styleVariant="water"
+            />
           </h2>
           <ol
             class="list-decimal pl-6 space-y-2 text-gray-700 dark:text-gray-300"
           >
             <li>
-              Die Spieler wählen eine Spielfigur und stellen sie auf das
-              Startfeld.
+              {{ t("rules.preparation.pieces") }}
             </li>
             <li>
-              Die Karten für Fragen und Ereignisse werden gemischt und
-              bereitgelegt.
+              {{ t("rules.preparation.cards") }}
             </li>
           </ol>
         </div>
@@ -111,49 +126,40 @@
         <div
           class="bg-white dark:bg-dark-background-LightGray rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl md:col-span-2 lg:col-span-3"
         >
-          <h2
-            class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center"
-          >
-            <PlayIcon class="w-6 h-6 mr-2" />
-            Spielablauf
+          <h2 class="text-2xl font-bold mb-4 flex items-center">
+            <PlayIcon class="w-6 h-6 mr-2 text-blue-600" />
+            <LastWordsRecolor
+              :text="t('rules.gameplay.header')"
+              :wordsToRecolor="10"
+              styleVariant="water"
+            />
           </h2>
           <ul class="space-y-4 text-gray-700 dark:text-gray-300">
             <li class="flex items-start">
               <ArrowRightCircleIcon
-                class="w-5 h-5 mr-2 mt-1 text-pink-600 dark:text-pink-400 flex-shrink-0"
+                class="w-5 h-5 mr-2 mt-1 text-blue-600 dark:text-blue-400 flex-shrink-0"
               />
-              <span
-                >Die Spieler würfeln reihum und ziehen entsprechend der
-                Augenzahl.</span
-              >
+              <span>{{ t("rules.gameplay.move") }}</span>
             </li>
             <li class="flex items-start">
               <HelpCircleIcon
-                class="w-5 h-5 mr-2 mt-1 text-pink-600 dark:text-pink-400 flex-shrink-0"
+                class="w-5 h-5 mr-2 mt-1 text-blue-600 dark:text-blue-400 flex-shrink-0"
               />
-              <span
-                ><span class="font-medium">Fragefelder:</span> Bei richtiger
-                Antwort vorziehen, bei falscher zurück.</span
-              >
+              <span class="font-medium">{{
+                t("rules.gameplay.questioncard")
+              }}</span>
             </li>
             <li class="flex items-start">
               <ZapIcon
-                class="w-5 h-5 mr-2 mt-1 text-pink-600 dark:text-pink-400 flex-shrink-0"
+                class="w-5 h-5 mr-2 mt-1 text-blue-600 dark:text-blue-400 flex-shrink-0"
               />
-              <span
-                ><span class="font-medium">Ereignisfelder:</span> Aufgaben
-                erfüllen – Erfolg bringt Fortschritt, Misserfolg
-                Rückschritt.</span
-              >
+              <span>{{ t("rules.gameplay.eventcard") }}</span>
             </li>
             <li class="flex items-start">
               <FlagIcon
-                class="w-5 h-5 mr-2 mt-1 text-pink-600 dark:text-pink-400 flex-shrink-0"
+                class="w-5 h-5 mr-2 mt-1 text-blue-600 dark:text-blue-400 flex-shrink-0"
               />
-              <span
-                >Das Spiel endet, wenn ein Spieler das letzte Feld
-                erreicht.</span
-              >
+              <span>{{ t("rules.gameplay.win") }}</span>
             </li>
           </ul>
         </div>
@@ -162,15 +168,16 @@
         <div
           class="bg-white dark:bg-dark-background-LightGray rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl md:col-span-2 lg:col-span-3"
         >
-          <h2
-            class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center"
-          >
-            <TargetIcon class="w-6 h-6 mr-2" />
-            Ziel des Spiels
+          <h2 class="text-2xl font-bold mb-4 flex items-center">
+            <TargetIcon class="w-6 h-6 mr-2 text-blue-600" />
+            <LastWordsRecolor
+              :text="t('rules.goal.header')"
+              :wordsToRecolor="10"
+              styleVariant="water"
+            />
           </h2>
           <p class="text-gray-700 dark:text-gray-300">
-            Der Spieler, der zuerst das letzte Feld erreicht, gewinnt das Spiel
-            – ein wahrer Meisterstratege!
+            {{ t("rules.goal") }}
           </p>
         </div>
       </div>
@@ -178,19 +185,22 @@
       <!-- Abschluss -->
       <div class="text-center mt-16">
         <h2 class="text-4xl font-extrabold">
-          <span
-            class="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"
-          >
-            Viel Spaß beim Spielen!
-          </span>
+          <LastWordsRecolor
+          :text="t('rules.footer')"
+          :wordsToRecolor="10"
+          styleVariant="colorful"
+        />
         </h2>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
+import { t } from "../lang/Translator.vue";
+import LastWordsRecolor from "./LastWordsRecolor";
+import MaximalSechsSection from "./MaximalSechsSection.vue";
 import {
   InfoIcon,
   DicesIcon,

@@ -3,36 +3,63 @@
   <div
     class="mx-auto py-8 overflow-auto bg-background-cream dark:bg-dark-background-cream"
   >
+    <!-- Boardgame -->
     <HeroSlider
-      title="Maximal Sechs"
+      :title="t('game.name')"
       titleStyle="cyanWater"
-      titleDesc="Brettspiel für die ganze Familie"
-      :description="t('3dPrinter.info')"
+      :titleDesc="t('game.header')"
+      :description="t('game.info')"
       :imageUrl="FamilyGameTime"
       side="right"
-      :tag="['Neu', 'Brettspiel']"
+      :tag="[
+        { text: t('tag.new'), icon: 'Flame' },
+        { text: t('tag.game'), icon: 'Dices' },
+      ]"
       ><template #buttons
-        ><div class="justify-start pb-8 items-center md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex flex-col md:flex-row">
-          <Btn styling="deepWater" text="Mehr Erfahren" @click="clickTest" />
-          <Btn styling="deepWater" text="Jetzt Kaufen" @click="clickTest" />
+        ><div
+          class="justify-start pb-8 items-center md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex flex-col md:flex-row"
+        >
+          <a href="#/about" class="w-full">
+            <Btn
+              styling="deepWater"
+              :text="t('common.learnMore')"
+              @click="clickTest"
+            />
+          </a>
+          <a href="#products" class="w-full"
+            ><Btn
+              styling="deepWater"
+              :text="t('common.buy')"
+              @click="clickTest"
+          /></a>
         </div>
-          </template
-    ></HeroSlider>
+      </template>
+    </HeroSlider>
+    <!-- Easter -->
     <HeroSlider
-      title="Oster-Kollektion"
+      :title="t('easter.header')"
       decoration
       titleStyle="easter"
-      titleDesc="Osterdekoration für dein Zuhause"
-      :description="t('3dPrinter.info')"
+      :titleDesc="t('easter.descHeader')"
+      :description="t('easter.info')"
       :imageUrl="easterEggsImg"
       side="left"
-      :tag="['Neu', 'Ostern']"
+      :tag="[
+        { text: t('tag.new'), icon: 'Flame' },
+        { text: t('tag.easter'), icon: 'Egg' },
+      ]"
     >
       <template #buttons
         ><div class="justify-start pb-8 items-center flex flex-row">
-          <Btn styling="easter" text="Zur Kollektion" @click="clickTest" /></div
+          <a href="#products" class="w-full"
+            ><Btn
+              styling="easter"
+              :text="t('common.collection')"
+              @click="clickTest"
+          /></a></div
       ></template>
     </HeroSlider>
+    <!-- Printer -->
     <HeroSlider
       title="Bambu Lab P1S"
       titleStyle="secondary"
@@ -40,19 +67,30 @@
       :description="t('3dPrinter.info')"
       :imageUrl="printerImage"
       side="right"
-      :tag="['Drucker', '3D']"
+      :tag="[{ text: t('tag.3dPrinter'), icon: 'Printer' }]"
       ><template #buttons
         ><div class="justify-start w-full pb-8 flex flex-row">
-          <Btn text="Mehr Erfahren" styling="" @click="clickTest" /></div></template
+          <a
+            class="w-full"
+            href="https://eu.store.bambulab.com/de/products/p1s-de?srsltid=AfmBOoqYU-n_ujmMmp6M1IOX2cqYbyoNbGi56KZF6BiyA-urNC1l2mJR"
+            ><Btn :text="t('common.learnMore')" styling="" @click="clickTest"
+          /></a></div></template
     ></HeroSlider>
     <InfoSection
-      title="Über unsere Schülerfirma"
+      :title="t('aboutUs.header')"
       :titleStyle="{ wordsToRecolor: 1, position: 'end', color: 'water' }"
-      description="Als engagierte Gruppe von Schülern verbinden wir Innovation mit Umweltbewusstsein. Durch modernste 3D-Druck-Technologie erschaffen wir Produkte, die nicht nur Freude bereiten, sondern auch zum Nachdenken über unsere Umwelt anregen."
+      :description="t('aboutUs.info')"
     >
       <template #buttons
-        ><div class="justify-center max-w-md mx-auto pb-8 -mt-10 items-center flex flex-row">
-          <Btn styling="sky" text="Mehr Erfahren" @click="clickTest" /></div
+        ><div
+          class="justify-center max-w-md mx-auto pb-8 -mt-10 items-center flex flex-row"
+        >
+          <a href="#/about"
+            ><Btn
+              styling="sky"
+              :text="t('common.learnMore')"
+              @click="clickTest"
+          /></a></div
       ></template>
     </InfoSection>
     <ProductSlider :products="products" />
@@ -76,6 +114,7 @@ import LastWordsRecolor from "./LastWordsRecolor";
 import InfoSectionHeader from "./InfoSectionHeader.vue";
 import InfoSection from "./InfoSection.vue";
 import ContactForm from "./ContactForm.vue";
+import { FireExtinguisherIcon } from "lucide-vue-next";
 
 import Btn from "@/UI/Button.vue";
 

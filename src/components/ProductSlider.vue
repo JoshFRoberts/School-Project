@@ -1,7 +1,7 @@
 <template>
-  <div class="relative px-4 py-8 mx-auto max-w-xs xl:max-w-7xl">
+  <div id="products" class="relative px-4 py-8 mx-auto max-w-xs xl:max-w-7xl">
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
-      Unsere Produkte!
+      {{ t("products.header") }}
     </h2>
     
     <!-- Slider Container -->
@@ -113,6 +113,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { t } from "../lang/Translator.vue";
 import ProductCard from "./ProductCard.vue";
 import type { Product } from "@/types";
 

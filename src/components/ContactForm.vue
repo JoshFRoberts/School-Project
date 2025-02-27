@@ -3,7 +3,7 @@
     <div class="w-full bg-white dark:bg-dark-background-LightGray mx-auto py-12 -mt-16 mb-8 rounded-lg">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
         <LastWordsRecolor
-          text="Kontaktieren Sie uns!"
+          :text="t('contact.header')"
           :wordsToRecolor="1"
           styleVariant="water"
           position="start"
@@ -13,14 +13,14 @@
       <form @submit.prevent="submitForm" class="space-y-6 max-w-xs md:max-w-2xl mx-auto">
   <!-- Name Field -->
   <div>
-    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ t("contact.name") }}</label>
     <input
       id="name"
       v-model="form.name"
       type="text"
       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-800 dark:text-white"
       :class="{ 'border-red-500 dark:border-red-400': errors.name }"
-      placeholder="Dein Name"
+      :placeholder="t('contact.name.placeholder')"
     />
     <p v-if="errors.name" class="mt-1 text-sm text-red-600 dark:text-red-400">
       {{ errors.name }}
@@ -29,14 +29,14 @@
 
   <!-- Email Field -->
   <div>
-    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ t("contact.email") }}</label>
     <input
       id="email"
       v-model="form.email"
       type="email"
       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-800 dark:text-white"
       :class="{ 'border-red-500 dark:border-red-400': errors.email }"
-      placeholder="deine.email@beispiel.com"
+      :placeholder="t('contact.email.placeholder')"
     />
     <p v-if="errors.email" class="mt-1 text-sm text-red-600 dark:text-red-400">
       {{ errors.email }}
@@ -45,14 +45,14 @@
 
   <!-- Message Field -->
   <div>
-    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nachricht</label>
+    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ t("contact.message") }}</label>
     <textarea
       id="message"
       v-model="form.message"
       rows="4"
       class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-800 dark:text-white"
       :class="{ 'border-red-500 dark:border-red-400': errors.message }"
-      placeholder="Deine Nachricht hier..."
+      .placeholder="t('contact.message.placeholder')"
     ></textarea>
     <p v-if="errors.message" class="mt-1 text-sm text-red-600 dark:text-red-400">
       {{ errors.message }}
@@ -87,7 +87,7 @@
           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
         ></path>
       </svg>
-      {{ isSubmitting ? "Sending..." : "Send Message" }}
+      {{ isSubmitting ? t("common.sending") : t("common.send") }}
     </button>
   </div>
 </form>
@@ -106,6 +106,7 @@
   </template>
   
   <script setup lang="ts">
+  import { t } from "../lang/Translator.vue";
   import { ref, reactive } from "vue";
   import emailjs from "emailjs-com";
   import WaveDiv from "./WaveDiv.vue";
