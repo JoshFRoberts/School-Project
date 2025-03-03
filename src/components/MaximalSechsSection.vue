@@ -50,11 +50,10 @@
       <!-- Auf kleinen Geräten wird der Block unter dem Inhalt positioniert, auf größeren Geräten (ab md) am unteren Rand des Content-Bereichs -->
       <div class="w-full mt-8 md:absolute md:bottom-8">
         <!-- Tags -->
-         <!-- TODO: Translation -->
         <div class="my-4 flex flex-wrap justify-center md:justify-start space-x-4">
-          <Tag title="100% Recycelbar" styleVariant="primary" />
-          <Tag title="Plastikfrei verpackt" styleVariant="secondary" />
-          <Tag title="Klimaneutral produziert" styleVariant="water" />
+          <Tag :title="t('tag.recycled')" styleVariant="primary" />
+          <Tag :title="t('tag.plastic')" styleVariant="secondary" />
+          <Tag :title="t('tag.klima')" styleVariant="water" />
         </div>
         <!-- Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start space-x-4">

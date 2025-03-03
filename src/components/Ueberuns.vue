@@ -1,8 +1,7 @@
 <template>
-  <!-- TODO: Translation -->
-  <div class="min-h-screen">
+  <div class="">
     <!-- Hero Section -->
-    <section class="container mx-auto px-4 py-16">
+    <section class="container mx-auto px-4 pt-16">
       <div
         class="text-center space-y-4"
         v-motion
@@ -12,16 +11,16 @@
         <h1
           class="text-4xl md:text-5xl font-bold text-blue-950 dark:text-gray-100"
         >
-          Wir sind die HA24B
+          {{ t('aboutUs.class') }}
         </h1>
         <div
           class="flex items-center justify-center gap-2 text-xl text-blue-600 dark:text-blue-400"
         >
           <Rocket class="h-6 w-6" />
-          <span class="font-semibold">Schülerfirma „Baller los"</span>
+          <span class="font-semibold">{{ t('aboutUs.class.company') }}</span>
         </div>
         <p class="text-muted-foreground text-lg max-w-2xl mx-auto italic">
-          "Baller los" bedeutet mit voller Kraft loslegen – und das machen wir.
+          {{ t('aboutUs.name.meaning') }}
         </p>
       </div>
     </section>
@@ -41,12 +40,10 @@
               class="flex items-center gap-3 text-blue-600 dark:text-blue-400"
             >
               <Users class="h-6 w-6" />
-              <h2 class="text-xl font-semibold">Wer wir sind</h2>
+              <h2 class="text-xl font-semibold">{{ t('aboutUs.who.header') }}</h2>
             </div>
             <p class="text-muted-foreground">
-              Wir sind 24 Schülerinnen und Schüler im Alter von 15 bis 18
-              Jahren. Unsere Firma haben wir im Rahmen der einjährigen
-              Berufsfachschule Wirtschaft an der BBS I Lüneburg gegründet.
+              {{ t('aboutUs.who.info') }}
             </p>
           </div>
         </div>
@@ -63,12 +60,10 @@
               class="flex items-center gap-3 text-green-600 dark:text-green-400"
             >
               <TreePine class="h-6 w-6" />
-              <h2 class="text-xl font-semibold">Unsere Mission</h2>
+              <h2 class="text-xl font-semibold">{{ t('aboutUs.mission.header') }}</h2>
             </div>
             <p class="text-muted-foreground">
-              Wir stellen ein eigenes Spiel her und wollen damit auf den
-              Umweltschutz, besonders bei den Gewässern, aufmerksam machen.
-              Nachhaltigkeit steht bei uns an erster Stelle.
+              {{ t('aboutUs.mission.info') }}
             </p>
           </div>
         </div>
@@ -85,12 +80,10 @@
               class="flex items-center gap-3 text-purple-600 dark:text-purple-400"
             >
               <Printer class="h-6 w-6" />
-              <h2 class="text-xl font-semibold">Nachhaltige Produktion</h2>
+              <h2 class="text-xl font-semibold">{{ t('aboutUs.production.header') }}</h2>
             </div>
             <p class="text-muted-foreground">
-              Mit unserem 3D-Drucker stellen wir Figuren aus recyclefähigem und
-              Recycling-Filament her. Auch Spielbrett und Verpackung sind
-              nachhaltig produziert.
+              {{ t('aboutUs.production.info') }}
             </p>
           </div>
         </div>
@@ -113,14 +106,10 @@
               class="flex items-center gap-3 text-blue-600 dark:text-blue-400"
             >
               <Waves class="h-8 w-8" />
-              <h2 class="text-2xl font-semibold">Unser lokales Engagement</h2>
+              <h2 class="text-2xl font-semibold">{{ t('aboutUs.engagement.header') }}</h2>
             </div>
             <p class="text-muted-foreground leading-relaxed">
-              Wir engagieren uns aktiv für unsere Umwelt, indem wir die
-              Verschmutzung der Ilmenau untersuchen. Dieser Fluss, der durch
-              Lüneburg fließt, liegt uns besonders am Herzen. Wir sammeln
-              Plastikmüll ein und dokumentieren die Verschmutzung, um auf die
-              Problematik aufmerksam zu machen.
+              {{ t('aboutUs.engagement.info') }}
             </p>
           </div>
         </div>
@@ -128,14 +117,14 @@
     </section>
 
     <!-- Kooperationen -->
-    <section class="container mx-auto px-4 py-12">
+    <section class="container mx-auto mt-2 pb-16">
       <div
         v-motion
         :initial="{ opacity: 0, y: 20 }"
         :enter="{ opacity: 1, y: 0, transition: { delay: 600 } }"
       >
         <h2 class="text-2xl font-semibold text-center mb-8">
-          Unsere Kooperationspartner
+          {{ t('aboutUs.partner.header') }}
         </h2>
         <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           <a href="https://www.webnetz.de/">
@@ -147,11 +136,10 @@
                   class="flex items-center gap-3 text-blue-600 dark:text-blue-400"
                 >
                   <Building2 class="h-6 w-6" />
-                  <h3 class="text-lg font-semibold">webnetz</h3>
+                  <h3 class="text-lg font-semibold">{{ t('aboutUs.partner.webnetz.header') }}</h3>
                 </div>
                 <p class="text-muted-foreground">
-                  Kooperation mit dem Lüneburger IT-Unternehmen „webnetz" für
-                  unsere Webpräsenz.
+                  {{ t('aboutUs.partner.webnetz.info') }}
                 </p>
               </div>
             </div>
@@ -165,11 +153,10 @@
                 class="flex items-center gap-3 text-blue-600 dark:text-blue-400"
               >
                 <GraduationCap class="h-6 w-6" />
-                <h3 class="text-lg font-semibold">IT22B</h3>
+                <h3 class="text-lg font-semibold">{{ t('aboutUs.partner.it.class.header') }}</h3>
               </div>
               <p class="text-muted-foreground">
-                Zusammenarbeit mit den Auszubildenden zum Fachinformatiker im 3.
-                Lehrjahr.
+                {{ t('aboutUs.partner.it.class.info') }}
               </p>
             </div>
           </div>
@@ -180,6 +167,7 @@
 </template>
 
 <script setup>
+import { t } from "../lang/Translator.vue"
 import {
   Rocket,
   Users,
@@ -188,7 +176,6 @@ import {
   Waves,
   Building2,
   GraduationCap,
-  Recycle,
 } from "lucide-vue-next";
 </script>
 

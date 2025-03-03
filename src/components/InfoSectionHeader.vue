@@ -31,7 +31,7 @@
       </div>
 
       <!-- Wave Footer -->
-      <div class="absolute bottom-0 left-0 right-0 w-full">
+      <div class="absolute -bottom-1 left-0 right-0 w-full">
         <WaveDiv waveStyle="smooth" />
       </div>
     </section>

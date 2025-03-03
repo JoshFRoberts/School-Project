@@ -26,6 +26,7 @@
               d="M15 19l-7-7 7-7"
             ></path>
           </svg>
+          <!-- TODO: Need Translation -->
           <span class="sr-only">Scroll left</span>
         </button>
       </div>
@@ -50,6 +51,7 @@
               d="M9 5l7 7-7 7"
             ></path>
           </svg>
+          <!-- TODO: Need Translation -->
           <span class="sr-only">Scroll right</span>
         </button>
       </div>
@@ -71,6 +73,7 @@
               d="M15 19l-7-7 7-7"
             ></path>
           </svg>
+          <!-- TODO: Need Translation -->
           <span>Swipe für mehr</span>
           <svg
             class="h-4 w-4 ml-1"

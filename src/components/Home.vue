@@ -110,14 +110,13 @@ import maximalSechsImg from "@/assets/images/spielbrett.jpg";
 import FamilyGameTime from "@/assets/images/FamilyGameTime.jpg";
 import easterEggsImg from "@/assets/images/eastereggs.jpeg";
 import type { SliderProductProps } from "@/resources/types";
-import LastWordsRecolor from "./LastWordsRecolor";
 import InfoSectionHeader from "./InfoSectionHeader.vue";
 import InfoSection from "./InfoSection.vue";
 import ContactForm from "./ContactForm.vue";
-import { FireExtinguisherIcon } from "lucide-vue-next";
 
 import Btn from "@/UI/Button.vue";
 
+// TODO: Need Translation 
 const products: SliderProductProps[] = [
   {
     name: "Maximal Sechs",

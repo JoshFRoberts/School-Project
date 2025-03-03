@@ -34,10 +34,12 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-4">
-          <Link to="/" :text="t('nav.home')" />
-          <Link to="#/rules" :text="t('nav.rules')" />
-          <Link to="#/about" :text="t('nav.aboutUs')" />
-          <!-- TODO: Add Privacy Page -->
+          <Link
+            v-for="link in links"
+            :key="link.href"
+            :to="link.href"
+            :text="link.label"
+          />
         </div>
 
         <div class="flex items-center space-x-4">
@@ -83,25 +85,13 @@
       >
         <div class="px-4 pt-2 pb-3 space-y-1">
           <a
-            href="#/"
+            v-for="link in links"
+            :key="link.href"
+            :href="link.href"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            {{ t("nav.home") }}
-          </a>
-          <a
-            href="#/rules"
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            {{ t("nav.rules") }}
-          </a>
-          <a
-            href="#/about"
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            {{ t("nav.aboutUs") }}
+            {{ t(link.label) }}
           </a>
         </div>
       </div>
@@ -131,9 +121,12 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-4">
-          <Link to="#/" :text="t('nav.home')" />
-          <Link to="#/rules" :text="t('nav.rules')" />
-          <Link to="#/about" :text="t('nav.aboutUs')" />
+          <Link
+            v-for="link in links"
+            :key="link.href"
+            :to="link.href"
+            :text="link.label"
+          />
         </div>
 
         <div class="flex items-center space-x-2">
@@ -179,25 +172,13 @@
       >
         <div class="px-4 pt-2 pb-3 space-y-1">
           <a
-            href="#/"
+            v-for="link in links"
+            :key="link.href"
+            :href="link.href"
             class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
             @click="closeMobileMenu"
           >
-            {{ t("nav.home") }}
-          </a>
-          <a
-            href="#/rules"
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            {{ t("nav.rules") }}
-          </a>
-          <a
-            href="#/about"
-            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-background-cream dark:hover:bg-dark-background-cream"
-            @click="closeMobileMenu"
-          >
-            {{ t("nav.aboutUs") }}
+            {{ t(link.label) }}
           </a>
         </div>
       </div>
@@ -220,16 +201,27 @@ import { t } from "../lang/Translator.vue";
 import UeberUns from "../components/Ueberuns.vue";
 import Rules from "../components/Rules.vue";
 import LangSelector from "../lang/LangSelector.vue";
-import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, h, onMounted, onUnmounted, ref, watch } from "vue";
 import DarkModeToggle from "@/components/DarkModeToggle.vue";
 import Link from "@/UI/Link.vue";
-import ProductsPage from "@/components/ProductsPage.vue";
+import Privacy from "@/components/Privacy.vue";
+import Imprint from "@/components/Imprint.vue";
 
 const routes: { [key: string]: any } = {
   "#/": Home,
   "/about": UeberUns,
   "/rules": Rules,
+  "/privacy": Privacy,
+  "/imprint": Imprint,
 };
+
+const links = [
+  { href: "#/", label: "nav.home" },
+  { href: "#/rules", label: "nav.rules" },
+  { href: "#/about", label: "nav.aboutUs" },
+  { href: "#/privacy", label: "footer.privacy" },
+  { href: "#/imprint", label: "footer.imprint" },
+];
 
 const currentPath = ref(window.location.hash);
 const isMobileMenuOpen = ref(false);

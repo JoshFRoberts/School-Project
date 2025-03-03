@@ -96,7 +96,7 @@
       <!-- Success/Error Message -->
       <div
         v-if="formStatus.show"
-        class="mt-8 p-3 rounded-md mx-64"
+        class="mt-8 p-3 rounded-md max-w-2xl mx-auto"
         :class="formStatus.isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'"
       >
         {{ formStatus.message }}
@@ -145,70 +145,36 @@
     isError: false,
   });
   
-  const validateForm = (): boolean => {
-    let isValid = true;
-    errors.name = undefined;
-    errors.email = undefined;
-    errors.message = undefined;
-  
-    if (!form.name.trim()) {
-      errors.name = "Name is required";
-      isValid = false;
-    }
-  
-    if (!form.email.trim()) {
-      errors.email = "Email is required";
-      isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      errors.email = "Please enter a valid email address";
-      isValid = false;
-    }
-  
-    if (!form.message.trim()) {
-      errors.message = "Message is required";
-      isValid = false;
-    }
-  
-    return isValid;
-  };
-  
-  const submitForm = async () => {
-    formStatus.show = false;
-  
-    if (!validateForm()) {
-      return;
-    }
-  
-    isSubmitting.value = true;
-  
-    try {
-      const templateParams = {
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-      };
-  
-      const serviceID = "service_3cc4vtr"; 
-      const templateID = "template_ajt5jyx";
-      const userID = "phiBmLpv_4i2jVTcb"; 
-  
-      const response = await emailjs.send(serviceID, templateID, templateParams, userID);
-  
-      formStatus.show = true;
-      formStatus.isError = false;
-      formStatus.message = "Your message has been sent successfully!";
-  
-      form.name = "";
-      form.email = "";
-      form.message = "";
-    } catch (error) {
-      formStatus.show = true;
-      formStatus.isError = true;
-      formStatus.message = "Failed to send message. Please try again later.";
-      console.error("EmailJS error:", error);
-    } finally {
-      isSubmitting.value = false;
-    }
-  };
+  const submitForm = async (): Promise<void> => {
+  formStatus.show = false;
+  isSubmitting.value = true;
+
+  try {
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      message: form.message,
+    };
+
+    const serviceID = "service_zpd01bh";
+    const templateID = "template_ajt5jyx";
+    const userID = "phiBmLpv_4i2jVTcb";
+
+    await emailjs.send(serviceID, templateID, templateParams, userID);
+
+    formStatus.show = true;
+    formStatus.isError = false;
+    formStatus.message = "Your message has been sent successfully!";
+    
+    Object.assign(form, { name: "", email: "", message: "" });
+  } catch (error) {
+    formStatus.show = true;
+    formStatus.isError = true;
+    formStatus.message = "Failed to send message. Please try again later.";
+    console.error("EmailJS error:", error);
+  } finally {
+    isSubmitting.value = false;
+  }
+};
   </script>
   
