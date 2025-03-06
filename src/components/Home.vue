@@ -106,7 +106,7 @@ import spielfiguren1 from "@/assets/images/spielfiguren.jpg";
 import spielfiguren2 from "@/assets/images/spielfiguren2.jpg";
 import ProductSlider from "@/components/ProductSlider.vue";
 import productImage from "@/assets/images/beispielprodukt.svg";
-import maximalSechsImg from "@/assets/images/spielbrett.jpg";
+// import maximalSechsImg from "@/assets/images/spielbrett.jpg";
 import FamilyGameTime from "@/assets/images/FamilyGameTime.jpg";
 import easterEggsImg from "@/assets/images/eastereggs.jpeg";
 import type { SliderProductProps } from "@/resources/types";
@@ -122,7 +122,7 @@ const products: SliderProductProps[] = [
     name: "Maximal Sechs",
     desc: "Ein Brettspiel für die ganze Familie",
     price: 30,
-    image: maximalSechsImg,
+    image: spielfiguren1,
   },
   {
     name: "3D Spielfigur Erweiterungsset 1",

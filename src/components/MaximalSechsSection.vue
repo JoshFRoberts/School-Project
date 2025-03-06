@@ -16,7 +16,7 @@
     class="bg-white mb-8 md:mb-16 dark:bg-dark-background-LightGray flex flex-col md:flex-row rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
   >
     <!-- Bild -->
-    <CustomImg :src="SpielbrettImg" class="w-full md:max-w-md"/>
+    <!-- <CustomImg :src="SpielbrettImg" class="w-full md:max-w-md"/> -->
     
     <!-- Content-Bereich -->
     <div class="ml-0 md:ml-8 relative mt-4 md:mt-0">
@@ -68,7 +68,7 @@
 import { t } from "../lang/Translator.vue";
 import LastWordsRecolor from "./LastWordsRecolor";
 import { Waves } from "lucide-vue-next";
-import SpielbrettImg from "@/assets/images/Spielbrett.jpg";
+// import SpielbrettImg from "@/assets/images/Spielbrett.jpg";
 import InfoCard from "./InfoCard.vue";
 import Btn from "@/UI/Button.vue";
 import Tag from "./Tag.vue";
