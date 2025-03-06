@@ -46,4 +46,15 @@ export const t = (path: string): string => {
 
   return jsonObject[path];
 };
+export default {
+  setup() {
+    return {
+      currentLang,
+      currentLangString,
+      switchLang,
+      t,
+    };
+  },
+};
+
 </script>
