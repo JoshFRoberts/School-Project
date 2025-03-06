@@ -38,7 +38,6 @@
           <InfoCard
             :title="card.title"
             :description="card.description"
-            :icon="card.icon"
           />
         </div>
       </div>
@@ -54,7 +53,7 @@
         </div>
         <!-- Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start space-x-4">
-          <Btn styling="sky" :text="t('common.buy')" @click="clickTest" rounding="m" />
+          <Btn styling="sky" :text="t('common.buy')" :clickling="clickTest" rounding="m" />
         </div>
       </div>
     </div>

@@ -76,12 +76,20 @@
           <a
             class="w-full"
             href="https://eu.store.bambulab.com/de/products/p1s-de?srsltid=AfmBOoqYU-n_ujmMmp6M1IOX2cqYbyoNbGi56KZF6BiyA-urNC1l2mJR"
-            ><Btn :text="t('common.learnMore')" styling="secondary" :clickling="clickTest" rounding="m"
+            ><Btn
+              :text="t('common.learnMore')"
+              styling="secondary"
+              :clickling="clickTest"
+              rounding="m"
           /></a></div></template
     ></HeroSlider>
     <InfoSection
       :title="t('aboutUs.header')"
-      :titleStyle="{ wordsToRecolor: 1, position: 'end', styleVariant: 'water' }"
+      :titleStyle="{
+        wordsToRecolor: 1,
+        position: 'end',
+        styleVariant: 'water',
+      }"
       :description="t('aboutUs.info')"
     >
       <template #buttons
@@ -120,24 +128,27 @@ import ContactForm from "./ContactForm.vue";
 import Btn from "@/UI/Button.vue";
 
 interface SliderProductProps {
-    name: string;
-    desc: string;
-    price: number;
-    image: string;
-    isNew?: boolean;
-    isSale?: boolean;
-    salePrice?: number;
-  }
-  
-// TODO: Need Translation 
+  id: number;
+  name: string;
+  desc: string;
+  price: number;
+  image: string;
+  isNew?: boolean;
+  isSale?: boolean;
+  salePrice?: number;
+}
+
+// TODO: Need Translation
 const products: SliderProductProps[] = [
   {
+    id: 1,
     name: "Maximal Sechs",
     desc: "Ein Brettspiel für die ganze Familie",
     price: 30,
     image: spielfiguren1,
   },
   {
+    id: 2,
     name: "3D Spielfigur Erweiterungsset 1",
     price: 10,
     isNew: true,
@@ -145,6 +156,7 @@ const products: SliderProductProps[] = [
     image: spielfiguren1,
   },
   {
+    id: 3,
     name: "3D Spielfigur Erweiterungsset 2",
     price: 20,
     isSale: true,
@@ -153,6 +165,7 @@ const products: SliderProductProps[] = [
     image: spielfiguren2,
   },
   {
+    id: 4,
     name: "Oster-Deko Set 'Hase'",
     desc: "stadg",
     price: 40,
@@ -160,18 +173,21 @@ const products: SliderProductProps[] = [
     image: productImage,
   },
   {
+    id: 5,
     name: "Oster-Deko Set 'Ei'",
     desc: "stadg",
     price: 400,
     image: productImage,
   },
   {
+    id: 6,
     name: "Oster-Deko Set 'Ei'",
     desc: "stadg",
     price: 400,
     image: productImage,
   },
   {
+    id: 7,
     name: "Oster-Deko Set 'Ei'",
     desc: "stadg",
     isSale: true,
@@ -180,6 +196,7 @@ const products: SliderProductProps[] = [
     image: productImage,
   },
   {
+    id: 8,
     name: "Oster-Deko Set 'Ei'",
     desc: "stadg",
     price: 400,

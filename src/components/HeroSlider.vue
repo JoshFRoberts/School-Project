@@ -19,7 +19,7 @@
           <LastWordsRecolor
             v-if="titleStyle"
             :text="title"
-            :wordsToRecolor=10
+            :wordsToRecolor="10"
             :styleVariant="titleStyle"
           />
           <div v-else>{{ title }}</div>
@@ -39,7 +39,7 @@
           v-if="props.tag"
           class="flex flex-row flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6 md:mb-8"
         >
-          <div v-for="tag in props.tag" :key="tag">
+          <div v-for="(tag, index) in props.tag" :key="index">
             <span
               :class="tagStyle"
               class="text-xs flex flex-row sm:text-sm whitespace-nowrap"
@@ -67,7 +67,6 @@
             alt="Product image"
             class="w-full h-auto rounded-lg object-cover mx-auto"
             :aria-label="`Image for ${title}`"
-            @error="onImageError"
           />
           <div
             class="absolute -bottom-3 sm:-bottom-4 right-3 sm:right-4 bg-violet-400 dark:bg-violet-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded-full shadow-lg text-xs sm:text-base"
@@ -103,7 +102,7 @@
           <LastWordsRecolor
             v-if="titleStyle"
             :text="title"
-            :wordsToRecolor=10
+            :wordsToRecolor="10"
             :styleVariant="titleStyle"
           />
           <div v-else>{{ title }}</div>
@@ -123,7 +122,7 @@
           v-if="props.tag"
           class="flex flex-row flex-wrap justify-center md:justify-start gap-2 mb-4 sm:mb-6 md:mb-8"
         >
-          <div v-for="tag in props.tag" :key="tag">
+          <div v-for="(tag, index) in props.tag" :key="index">
             <span
               :class="tagStyle"
               class="text-xs flex flex-row sm:text-sm whitespace-nowrap"
@@ -150,14 +149,21 @@ import * as lucideIcons from "lucide-vue-next";
 
 const props = defineProps<{
   title: string;
-  titleStyle?: string;
+  titleStyle?:
+    | "easter"
+    | "primary"
+    | "secondary"
+    | "colorful"
+    | "tealWater"
+    | "cyanWater"
+    | "water";
   titleDesc?: string;
   description: string;
   imageUrl: string;
   side: "left" | "right";
   decoration?: boolean;
   isNew?: boolean;
-  tag?: { text: string; icon?: String }[];
+  tag?: { text: string; icon?: string }[];
   imageSize?: number;
 }>();
 
@@ -170,11 +176,6 @@ const getLucideIcon = (iconName?: string) => {
 
 // Fallback image URL
 const fallbackImage = "/path/to/fallback/image.jpg";
-
-// Handle image errors by using fallback image
-const onImageError = (event) => {
-  event.target.src = fallbackImage;
-};
 
 // Background style based on title style (missing in original, added here)
 const bgStyle = computed(() => {
