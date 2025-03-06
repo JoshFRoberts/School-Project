@@ -73,7 +73,7 @@
           <a
             class="w-full"
             href="https://eu.store.bambulab.com/de/products/p1s-de?srsltid=AfmBOoqYU-n_ujmMmp6M1IOX2cqYbyoNbGi56KZF6BiyA-urNC1l2mJR"
-            ><Btn :text="t('common.learnMore')" styling="" @click="clickTest"
+            ><Btn :text="t('common.learnMore')" styling="secondary" @click="clickTest"
           /></a></div></template
     ></HeroSlider>
     <InfoSection
@@ -109,13 +109,22 @@ import productImage from "@/assets/images/beispielprodukt.svg";
 // import maximalSechsImg from "@/assets/images/spielbrett.jpg";
 import FamilyGameTime from "@/assets/images/FamilyGameTime.jpg";
 import easterEggsImg from "@/assets/images/eastereggs.jpeg";
-import type { SliderProductProps } from "@/resources/types";
 import InfoSectionHeader from "./InfoSectionHeader.vue";
 import InfoSection from "./InfoSection.vue";
 import ContactForm from "./ContactForm.vue";
 
 import Btn from "@/UI/Button.vue";
 
+interface SliderProductProps {
+    name: string;
+    desc: string;
+    price: number;
+    image: string;
+    isNew?: boolean;
+    isSale?: boolean;
+    salePrice?: number;
+  }
+  
 // TODO: Need Translation 
 const products: SliderProductProps[] = [
   {

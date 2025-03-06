@@ -11,7 +11,7 @@
           v-if="titleStyle"
           :text="title"
           :wordsToRecolor="titleStyle.wordsToRecolor"
-          :styleVariant="titleStyle.color"
+          :styleVariant="titleStyle.styleVariant"
           :position="titleStyle.position"
         />
         <p v-else>{{ title }}</p>

@@ -14,23 +14,16 @@ const props = defineProps({
   styling: {
     type: String,
     required: true,
-    validator: (value: string) => {
-      const acceptedValues = [
-        "spring",
-        "easter",
-        "mint",
-        "sunny",
-        "sky",
-        "lavender",
-        "secondary",
-        "water",
+    validator(value: string) {
+      // Wenn nur bestimmte Strings erlaubt sind, können Sie eine Validierung hinzufügen
+      const allowedStyles = [
         "deepWater",
+        "easter",
+        "cyanWater",
+        "sky",
+        "secondary",
       ];
-      const val: boolean = acceptedValues.includes(value);
-      if (!val) {
-        console.warn("Prop styling can only have values:", acceptedValues);
-      }
-      return val;
+      return allowedStyles.includes(value);
     },
   },
   rounding: {
