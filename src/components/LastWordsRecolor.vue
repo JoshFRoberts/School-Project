@@ -1,16 +1,15 @@
-<script lang="ts">
-import { defineComponent, h } from "vue";
+<script setup lang="ts">
+import { h } from "vue";
 
-export interface GetWordsToRecolorProps {
+interface RecolorProps {
+  text: string;
   wordsToRecolor?: number;
   wordsToHighlight?: string[];
   position?: "start" | "middle" | "end" | "custom";
-  styleVariant?: RecolorStyle["styleVariant"];
+  styleVariant?: "easter" | "primary" | "secondary" | "colorful" | "tealWater" | "cyanWater" | "water";
 }
 
-export interface RecolorStyle {
-  styleVariant: "easter" | "primary" | "secondary" | "colorful" | "tealWater" | "cyanWater" | "water";
-}
+defineProps<RecolorProps>();
 
 const getGradientClass = (variant: string) => {
   switch (variant) {
@@ -33,74 +32,55 @@ const getGradientClass = (variant: string) => {
   }
 };
 
-export default defineComponent({
-  name: "WordsRecolor",
-  props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    wordsToRecolor: {
-      type: Number,
-      default: 2,
-    },
-    wordsToHighlight: {
-      type: Array as () => string[],
-      default: () => [],
-    },
-    position: {
-      type: String as () => "start" | "middle" | "end" | "custom",
-      default: "end",
-    },
-    styleVariant: {
-      type: String as () => "easter" | "primary" | "secondary" | "colorful" | "tealWater" | "cyanWater" | "water",
-      default: "primary",
-    },
-  },
-  setup(props) {
-    const getWordsToRecolor = () => {
-      const words = props.text.split(" ");
-      if (words.length < props.wordsToRecolor) {
-        return h("span", { class: getGradientClass(props.styleVariant) }, props.text);
-      }
+const getWordsToRecolor = (
+  text: string,
+  wordsToRecolor: number = 2,
+  wordsToHighlight?: string[],
+  position: "start" | "middle" | "end" | "custom" = "end",
+  styleVariant: string = "primary"
+) => {
+  const words = text.split(" ");
+  if (words.length < wordsToRecolor) {
+    return h("span", { class: getGradientClass(styleVariant) }, text);
+  }
 
-      if (props.position === "custom" && props.wordsToHighlight) {
-        return h(
-          "span",
-          null,
-          words.map((word) =>
-            props.wordsToHighlight.includes(word)
-              ? [h("span", { class: getGradientClass(props.styleVariant) }, word), " "]
-              : word + " "
-          )
-        );
-      }
+  if (position === "custom" && wordsToHighlight) {
+    return h(
+      "span",
+      null,
+      words.map((word) =>
+        wordsToHighlight.includes(word)
+          ? [h("span", { class: getGradientClass(styleVariant) }, word), " "]
+          : word + " "
+      )
+    );
+  }
 
-      let startIdx = 0;
-      if (props.position === "end") {
-        startIdx = words.length - props.wordsToRecolor;
-      } else if (props.position === "middle") {
-        startIdx = Math.max(0, Math.floor((words.length - props.wordsToRecolor) / 2));
-      } else if (props.position === "start") {
-        startIdx = 0;
-      }
+  let startIdx = 0;
+  if (position === "end") {
+    startIdx = words.length - wordsToRecolor;
+  } else if (position === "middle") {
+    startIdx = Math.max(0, Math.floor((words.length - wordsToRecolor) / 2));
+  } else if (position === "start") {
+    startIdx = 0;
+  }
 
-      const before = words.slice(0, startIdx).join(" ") + (startIdx > 0 ? " " : "");
-      const recolor = words.slice(startIdx, startIdx + props.wordsToRecolor).join(" ");
-      const after = (startIdx + props.wordsToRecolor < words.length ? " " : "") + words.slice(startIdx + props.wordsToRecolor).join(" ");
+  const before = words.slice(0, startIdx).join(" ") + (startIdx > 0 ? " " : "");
+  const recolor = words.slice(startIdx, startIdx + wordsToRecolor).join(" ");
+  const after =
+    (startIdx + wordsToRecolor < words.length ? " " : "") +
+    words.slice(startIdx + wordsToRecolor).join(" ");
 
-      return h("span", null, [
-        before,
-        h("span", { class: getGradientClass(props.styleVariant) }, recolor),
-        after,
-      ]);
-    };
-
-    return () => getWordsToRecolor();
-  },
-});
+  return h("span", null, [
+    before,
+    h("span", { class: getGradientClass(styleVariant) }, recolor),
+    after,
+  ]);
+};
 </script>
 
 <template>
-  <span v-html="getWordsToRecolor()"></span>
+  <div>
+    <component :is="getWordsToRecolor(text, wordsToRecolor, wordsToHighlight, position, styleVariant)" />
+  </div>
 </template>

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { definedProps } from "vue";
+import { defineProps } from "vue";
 import * as lucideIcons from "lucide-vue-next";
 
 const props = defineProps<{

@@ -19,7 +19,7 @@
           <LastWordsRecolor
             v-if="titleStyle"
             :text="title"
-            :wordsToRecolor="10"
+            :wordsToRecolor=10
             :styleVariant="titleStyle"
           />
           <div v-else>{{ title }}</div>
@@ -103,7 +103,7 @@
           <LastWordsRecolor
             v-if="titleStyle"
             :text="title"
-            :wordsToRecolor="10"
+            :wordsToRecolor=10
             :styleVariant="titleStyle"
           />
           <div v-else>{{ title }}</div>
@@ -163,10 +163,11 @@ const props = defineProps<{
 
 // Dynamische Auswahl des Icons
 const getLucideIcon = (iconName?: string) => {
-  return iconName && lucideIcons[iconName]
-    ? lucideIcons[iconName]
+  return iconName && iconName in lucideIcons
+    ? (lucideIcons as Record<string, any>)[iconName]
     : lucideIcons.HelpCircle;
 };
+
 // Fallback image URL
 const fallbackImage = "/path/to/fallback/image.jpg";
 
