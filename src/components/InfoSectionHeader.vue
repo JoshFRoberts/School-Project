@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import LastWordsRecolor from "./LastWordsRecolor";
+import LastWordsRecolor from "./LastWordsRecolor.vue";
 import spielbrettImg from "@/assets/images/Klassenfoto.jpg";
 import WaveDiv from "./WaveDiv.vue";
 import { t } from "../lang/Translator.vue";

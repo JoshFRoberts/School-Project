@@ -110,7 +110,7 @@
   import { ref, reactive } from "vue";
   import emailjs from "emailjs-com";
   import WaveDiv from "./WaveDiv.vue";
-  import LastWordsRecolor from "./LastWordsRecolor.tsx";
+  import LastWordsRecolor from "./LastWordsRecolor.vue";
   import { useThemeColor } from './getThemeColor';
   
   interface FormData {

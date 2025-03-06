@@ -145,7 +145,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import LastWordsRecolor from "./LastWordsRecolor";
+import LastWordsRecolor from "./LastWordsRecolor.vue";
 import * as lucideIcons from "lucide-vue-next";
 
 const props = defineProps<{

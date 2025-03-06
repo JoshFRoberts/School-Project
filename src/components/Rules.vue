@@ -199,7 +199,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { t } from "../lang/Translator.vue";
-import LastWordsRecolor from "./LastWordsRecolor";
+import LastWordsRecolor from "./LastWordsRecolor.vue"
 import MaximalSechsSection from "./MaximalSechsSection.vue";
 import {
   InfoIcon,

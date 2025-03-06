@@ -66,7 +66,7 @@
 
 <script setup lang="ts">
 import { t } from "../lang/Translator.vue";
-import LastWordsRecolor from "./LastWordsRecolor";
+import LastWordsRecolor from "./LastWordsRecolor.vue";
 import { Waves } from "lucide-vue-next";
 // import SpielbrettImg from "@/assets/images/Spielbrett.jpg";
 import InfoCard from "./InfoCard.vue";

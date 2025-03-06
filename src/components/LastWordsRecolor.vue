@@ -1,63 +1,16 @@
+<script lang="ts">
 import { defineComponent, h } from "vue";
 
-export interface getWordsToRecolorProps {
+export interface GetWordsToRecolorProps {
   wordsToRecolor?: number;
   wordsToHighlight?: string[];
   position?: "start" | "middle" | "end" | "custom";
-  styleVariant?: recolorStyle["styleVariant"];
+  styleVariant?: RecolorStyle["styleVariant"];
 }
-export interface recolorStyle {
+
+export interface RecolorStyle {
   styleVariant: "easter" | "primary" | "secondary" | "colorful" | "tealWater" | "cyanWater" | "water";
 }
-
-export const getWordsToRecolor = (
-  text: string,
-  wordsToRecolor: number = 2,
-  wordsToHighlight?: string[],
-  position: "start" | "middle" | "end" | "custom" = "end",
-  styleVariant: recolorStyle["styleVariant"] = "primary"
-) => {
-  const words = text.split(" ");
-  if (words.length < wordsToRecolor) {
-    return h("span", { class: getGradientClass(styleVariant) }, text);
-  }
-
-  // Handle custom highlighting: wrap each matching word individually.
-  if (position === "custom" && wordsToHighlight) {
-    return h(
-      "span",
-      null,
-      words.map((word, idx) =>
-        wordsToHighlight.includes(word)
-          ? [h("span", { class: getGradientClass(styleVariant) }, word), " "]
-          : word + " "
-      )
-    );
-  }
-
-  let startIdx = 0;
-  if (position === "end") {
-    startIdx = words.length - wordsToRecolor;
-  } else if (position === "middle") {
-    startIdx = Math.max(0, Math.floor((words.length - wordsToRecolor) / 2));
-  } else if (position === "start") {
-    startIdx = 0;
-  }
-
-  // Prepare the parts with spaces intact.
-  const before = words.slice(0, startIdx).join(" ") + (startIdx > 0 ? " " : "");
-  const recolor = words.slice(startIdx, startIdx + wordsToRecolor).join(" ");
-  const after =
-    (startIdx + wordsToRecolor < words.length ? " " : "") +
-    words.slice(startIdx + wordsToRecolor).join(" ");
-
-  return h("span", null, [
-    before,
-    h("span", { class: getGradientClass(styleVariant) }, recolor),
-    after,
-  ]);
-};
-
 
 const getGradientClass = (variant: string) => {
   switch (variant) {
@@ -78,7 +31,6 @@ const getGradientClass = (variant: string) => {
     default:
       return "bg-gradient-to-r from-blue-500 dark:from-blue-600 via-purple-500 dark:via-purple-600 to-purple-600 dark:to-purple-700 text-transparent bg-clip-text";
   }
-  
 };
 
 export default defineComponent({
@@ -106,13 +58,49 @@ export default defineComponent({
     },
   },
   setup(props) {
-    return () =>
-      getWordsToRecolor(
-        props.text,
-        props.wordsToRecolor,
-        props.wordsToHighlight,
-        props.position,
-        props.styleVariant
-      );
+    const getWordsToRecolor = () => {
+      const words = props.text.split(" ");
+      if (words.length < props.wordsToRecolor) {
+        return h("span", { class: getGradientClass(props.styleVariant) }, props.text);
+      }
+
+      if (props.position === "custom" && props.wordsToHighlight) {
+        return h(
+          "span",
+          null,
+          words.map((word) =>
+            props.wordsToHighlight.includes(word)
+              ? [h("span", { class: getGradientClass(props.styleVariant) }, word), " "]
+              : word + " "
+          )
+        );
+      }
+
+      let startIdx = 0;
+      if (props.position === "end") {
+        startIdx = words.length - props.wordsToRecolor;
+      } else if (props.position === "middle") {
+        startIdx = Math.max(0, Math.floor((words.length - props.wordsToRecolor) / 2));
+      } else if (props.position === "start") {
+        startIdx = 0;
+      }
+
+      const before = words.slice(0, startIdx).join(" ") + (startIdx > 0 ? " " : "");
+      const recolor = words.slice(startIdx, startIdx + props.wordsToRecolor).join(" ");
+      const after = (startIdx + props.wordsToRecolor < words.length ? " " : "") + words.slice(startIdx + props.wordsToRecolor).join(" ");
+
+      return h("span", null, [
+        before,
+        h("span", { class: getGradientClass(props.styleVariant) }, recolor),
+        after,
+      ]);
+    };
+
+    return () => getWordsToRecolor();
   },
 });
+</script>
+
+<template>
+  <span v-html="getWordsToRecolor()"></span>
+</template>

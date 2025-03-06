@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import WaveDiv from "./WaveDiv.vue";
 import { defineProps } from "vue";
-import LastWordsRecolor, { getWordsToRecolorProps } from "./LastWordsRecolor.tsx";
+import LastWordsRecolor, { getWordsToRecolorProps } from "./LastWordsRecolor.vue";
 import { useThemeColor } from './getThemeColor';
 
 const props = defineProps<{
