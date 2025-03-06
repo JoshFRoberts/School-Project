@@ -23,7 +23,7 @@
             <Btn
               styling="deepWater"
               :text="t('common.learnMore')"
-              @click="clickTest"
+              :clickling="clickTest"
               rounding="m"
             />
           </a>
@@ -31,7 +31,7 @@
             ><Btn
               styling="deepWater"
               :text="t('common.buy')"
-              @click="clickTest"
+              :clickling="clickTest"
               rounding="m"
           /></a>
         </div>
@@ -57,7 +57,7 @@
             ><Btn
               styling="easter"
               :text="t('common.collection')"
-              @click="clickTest"
+              :clickling="clickTest"
               rounding="m"
           /></a></div
       ></template>
@@ -76,7 +76,7 @@
           <a
             class="w-full"
             href="https://eu.store.bambulab.com/de/products/p1s-de?srsltid=AfmBOoqYU-n_ujmMmp6M1IOX2cqYbyoNbGi56KZF6BiyA-urNC1l2mJR"
-            ><Btn :text="t('common.learnMore')" styling="secondary" @click="clickTest" rounding="m"
+            ><Btn :text="t('common.learnMore')" styling="secondary" :clickling="clickTest" rounding="m"
           /></a></div></template
     ></HeroSlider>
     <InfoSection
@@ -92,7 +92,7 @@
             ><Btn
               styling="sky"
               :text="t('common.learnMore')"
-              @click="clickTest"
+              :clickling="clickTest"
               rounding="m"
           /></a></div
       ></template>
