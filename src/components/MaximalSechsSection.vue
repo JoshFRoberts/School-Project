@@ -15,6 +15,7 @@
   <div
     class="bg-white mb-8 md:mb-16 dark:bg-dark-background-LightGray flex flex-col md:flex-row rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
   >
+    <CustomImg :src="SpielbrettImg" class="w-full md:max-w-md" />
     <!-- Content-Bereich -->
     <div class="ml-0 md:ml-8 relative mt-4 md:mt-0">
       <h2 class="text-2xl md:text-4xl font-bold mb-4 flex items-center">
@@ -25,7 +26,9 @@
           styleVariant="water"
         />
       </h2>
-      <p class="dark:text-blue-500 text-base md:text-xl text-blue-600 italic mb-4">
+      <p
+        class="dark:text-blue-500 text-base md:text-xl text-blue-600 italic mb-4"
+      >
         {{ t("game.tagline") }}
       </p>
       <p class="text-gray-600 dark:text-gray-300">
@@ -35,10 +38,7 @@
       <!-- Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         <div v-for="(card, index) in InfoCardValues" :key="index">
-          <InfoCard
-            :title="card.title"
-            :description="card.description"
-          />
+          <InfoCard :title="card.title" :description="card.description" />
         </div>
       </div>
 
@@ -46,14 +46,21 @@
       <!-- Auf kleinen Geräten wird der Block unter dem Inhalt positioniert, auf größeren Geräten (ab md) am unteren Rand des Content-Bereichs -->
       <div class="w-full mt-8 md:absolute md:bottom-8">
         <!-- Tags -->
-        <div class="my-4 flex flex-wrap justify-center md:justify-start space-x-4">
+        <div
+          class="my-4 flex flex-wrap justify-center md:justify-start space-x-4"
+        >
           <Tag :title="t('tag.recycled')" styleVariant="primary" />
           <Tag :title="t('tag.plastic')" styleVariant="secondary" />
           <Tag :title="t('tag.klima')" styleVariant="water" />
         </div>
         <!-- Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start space-x-4">
-          <Btn styling="sky" :text="t('common.buy')" :clickling="clickTest" rounding="m" />
+          <Btn
+            styling="sky"
+            :text="t('common.buy')"
+            :clickling="clickTest"
+            rounding="m"
+          />
         </div>
       </div>
     </div>
@@ -64,10 +71,11 @@
 import { t } from "../lang/Translator.vue";
 import LastWordsRecolor from "./LastWordsRecolor.vue";
 import { Waves } from "lucide-vue-next";
-// import SpielbrettImg from "@/assets/images/Spielbrett.jpg";
+import SpielbrettImg from "@/assets/images/spielbrett.jpg";
 import InfoCard from "./InfoCard.vue";
 import Btn from "@/UI/Button.vue";
 import Tag from "./Tag.vue";
+import CustomImg from "./CustomImg.vue";
 
 const clickTest = () => {
   console.log("Button clicked!");
