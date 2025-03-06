@@ -54,7 +54,7 @@
         </div>
         <!-- Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start space-x-4">
-          <Btn styling="sky" :text="t('common.buy')" @click="clickTest" />
+          <Btn styling="sky" :text="t('common.buy')" @click="clickTest" rounding="m" />
         </div>
       </div>
     </div>

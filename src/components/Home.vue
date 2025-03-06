@@ -24,6 +24,7 @@
               styling="deepWater"
               :text="t('common.learnMore')"
               @click="clickTest"
+              rounding="m"
             />
           </a>
           <a href="#products" class="w-full"
@@ -31,6 +32,7 @@
               styling="deepWater"
               :text="t('common.buy')"
               @click="clickTest"
+              rounding="m"
           /></a>
         </div>
       </template>
@@ -56,6 +58,7 @@
               styling="easter"
               :text="t('common.collection')"
               @click="clickTest"
+              rounding="m"
           /></a></div
       ></template>
     </HeroSlider>
@@ -73,12 +76,12 @@
           <a
             class="w-full"
             href="https://eu.store.bambulab.com/de/products/p1s-de?srsltid=AfmBOoqYU-n_ujmMmp6M1IOX2cqYbyoNbGi56KZF6BiyA-urNC1l2mJR"
-            ><Btn :text="t('common.learnMore')" styling="secondary" @click="clickTest"
+            ><Btn :text="t('common.learnMore')" styling="secondary" @click="clickTest" rounding="m"
           /></a></div></template
     ></HeroSlider>
     <InfoSection
       :title="t('aboutUs.header')"
-      :titleStyle="{ wordsToRecolor: 1, position: 'end', color: 'water' }"
+      :titleStyle="{ wordsToRecolor: 1, position: 'end', styleVariant: 'water' }"
       :description="t('aboutUs.info')"
     >
       <template #buttons
@@ -90,6 +93,7 @@
               styling="sky"
               :text="t('common.learnMore')"
               @click="clickTest"
+              rounding="m"
           /></a></div
       ></template>
     </InfoSection>

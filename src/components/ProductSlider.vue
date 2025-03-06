@@ -118,10 +118,19 @@
 import { ref } from "vue";
 import { t } from "../lang/Translator.vue";
 import ProductCard from "./ProductCard.vue";
-import type { Product } from "@/types";
+
+interface SliderProductProps {
+  name: string;
+  desc: string;
+  price: number;
+  image: string;
+  isNew?: boolean;
+  isSale?: boolean;
+  salePrice?: number;
+}
 
 const props = defineProps<{
-  products: Product[];
+  products: SliderProductProps[];
 }>();
 
 const containerRef = ref<HTMLElement | null>(null);

@@ -1,4 +1,16 @@
+<template>
+  <button
+    @click="handleClick"
+    class="px-6 py-3 font-semibold transition-transform transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 shadow-md"
+    :class="[roundingSize, colorName]"
+  >
+    {{ props.text }}
+  </button>
+</template>
+
 <script setup lang="ts">
+import { defineProps, computed } from 'vue';
+
 const props = defineProps({
   text: {
     type: String,
@@ -32,7 +44,6 @@ const props = defineProps({
   },
 });
 
-import { computed } from "vue";
 
 const roundingSize = computed(() => {
   switch (props.rounding) {
@@ -76,13 +87,3 @@ const handleClick = () => {
   props.clickling();
 };
 </script>
-
-<template>
-  <button
-    @click="handleClick"
-    class="px-6 py-3 font-semibold transition-transform transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 shadow-md"
-    :class="[roundingSize, colorName]"
-  >
-    {{ props.text }}
-  </button>
-</template>
