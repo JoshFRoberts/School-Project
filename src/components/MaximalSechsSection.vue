@@ -15,9 +15,6 @@
   <div
     class="bg-white mb-8 md:mb-16 dark:bg-dark-background-LightGray flex flex-col md:flex-row rounded-xl p-6 shadow-lg transition duration-300 hover:shadow-xl"
   >
-    <!-- Bild -->
-    <!-- <CustomImg :src="SpielbrettImg" class="w-full md:max-w-md"/> -->
-    
     <!-- Content-Bereich -->
     <div class="ml-0 md:ml-8 relative mt-4 md:mt-0">
       <h2 class="text-2xl md:text-4xl font-bold mb-4 flex items-center">
@@ -72,7 +69,6 @@ import { Waves } from "lucide-vue-next";
 import InfoCard from "./InfoCard.vue";
 import Btn from "@/UI/Button.vue";
 import Tag from "./Tag.vue";
-import CustomImg from "./CustomImg.vue";
 
 const clickTest = () => {
   console.log("Button clicked!");

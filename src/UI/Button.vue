@@ -28,7 +28,7 @@ const props = defineProps({
   },
   rounding: {
     type: String,
-    default: "",
+    default: "m",
   },
 });
 

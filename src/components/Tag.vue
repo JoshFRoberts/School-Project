@@ -22,10 +22,11 @@ const props = defineProps<{
 }>();
 
 const getLucideIcon = (iconName?: string) => {
-  return iconName && lucideIcons[iconName]
-    ? lucideIcons[iconName]
+  return iconName && iconName in lucideIcons
+    ? (lucideIcons as Record<string, any>)[iconName]
     : lucideIcons.HelpCircle;
 };
+
 
 const tagStyle = computed(() => {
   switch (props.styleVariant) {
