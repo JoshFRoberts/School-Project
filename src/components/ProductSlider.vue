@@ -120,6 +120,7 @@ import { t } from "../lang/Translator.vue";
 import ProductCard from "./ProductCard.vue";
 
 interface SliderProductProps {
+  id: number;
   name: string;
   desc: string;
   price: number;
