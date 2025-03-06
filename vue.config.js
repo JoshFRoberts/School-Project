@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/',  // Definiert den Basis-Pfad für das Projekt
+    publicPath: '/index.html',  // Definiert den Basis-Pfad für das Projekt
     outputDir: 'dist',  // Definiert den Ordner für die Build-Dateien
     configureWebpack: {
       devServer: {
